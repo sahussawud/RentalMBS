@@ -1,7 +1,8 @@
-package rental;
+
 
 import java.sql.*; 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -92,10 +93,10 @@ public class carrepair extends javax.swing.JFrame {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
     /**
@@ -132,7 +133,7 @@ public class carrepair extends javax.swing.JFrame {
         daterepair = new com.toedter.calendar.JDateChooser();
         dateprb = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
@@ -165,22 +166,17 @@ public class carrepair extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(102, 255, 255));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Repair");
+        jLabel1.setText("  Repair");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel3.setText("ID รถ");
@@ -294,42 +290,40 @@ public class carrepair extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkBox2)
-                    .addComponent(chkBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkBox4)
-                    .addComponent(chkBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(id_car, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(chkBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkBox2)
+                            .addComponent(chkBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkBox4)
+                            .addComponent(chkBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(id_car, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(daterepair, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel10)
+                                .addComponent(daterepair, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateprb, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 2, Short.MAX_VALUE))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)))
-                .addContainerGap())
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateprb, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,35 +347,44 @@ public class carrepair extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jLabel8)
-                        .addGap(18, 189, Short.MAX_VALUE))
+                        .addComponent(jLabel8))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2)))
-                .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(daterepair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(daterepair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dateprb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel10))
+                    .addComponent(dateprb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "ID รถ", "ยี่ห้อ", "รุ่น", "สี", "ทะเบียน", "ราคา/เดือน", "ราคา/วัน", "สถานะ", "วันที่"
             }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -389,12 +392,11 @@ public class carrepair extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -403,11 +405,9 @@ public class carrepair extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -415,13 +415,66 @@ public class carrepair extends javax.swing.JFrame {
 
     private void chkBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox1ActionPerformed
         repair += "ระบบเครื่องยนต์  \n";
+        
     }//GEN-LAST:event_chkBox1ActionPerformed
 
     private void chkBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox4ActionPerformed
         repair += "ระบบของเหลว  \n";
+        
     }//GEN-LAST:event_chkBox4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       // TODO add your handling code here:
+//        DefaultTableModel d1 = (DefaultTableModel)jTable1.getModel();
+//        int selectedrow = jTable1.getSelectedRow();
+//           
+//            try {
+//        idcar = id_car.getSelectedItem().toString();
+//            String about = txtabout.getText();
+//            String checkBox1 = chkBox1.getText();
+//            String checkBox2 = chkBox2.getText();
+//            String checkBox3 = chkBox3.getText();
+//            String checkBox4 = chkBox4.getText();
+//            String checkBox5 = chkBox5.getText();
+//            
+//            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
+//            String date = Date_Format.format(daterepair.getDate());
+//            
+//            SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
+//            String datep = Date_Format1.format(dateprb.getDate());
+//        
+//
+//        Class.forName("com.mysql.jdbc.Driver");
+//               
+//        Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base","123456");
+//          pst =con.prepareStatement("update  carrepair set carid=?,carband=?,carmodel=?,carcolor=?,type=?,about=?,daterepair=? where dateprb=? ");
+//        
+//                  
+//                  
+//        System.out.println(".");
+//            pst.setString(1,idcar);
+//            pst.setString(2,carbrand);
+//            pst.setString(3,carmodel);
+//            pst.setString(4,carcolor);
+//            pst.setString(5,cartabian);
+//            pst.setString(6,repair);
+//            pst.setString(7,about);
+//            pst.setString(8,date);
+//            pst.setString(9,datep);
+//
+//            pst.executeUpdate();
+//            showData();
+//            JOptionPane.showMessageDialog(this, "Data Updated");
+//            } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        catch (SQLException ex) {
+//            Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        
+//        
+        
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -443,9 +496,9 @@ public class carrepair extends javax.swing.JFrame {
             showData();
                 
            } catch (ClassNotFoundException ex) {
-               Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
            } catch (SQLException ex) {
-               Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
            }
                
             
@@ -456,7 +509,8 @@ public class carrepair extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try {
+       
+    try {
            
             idcar = id_car.getSelectedItem().toString();
             String about = txtabout.getText();
@@ -466,11 +520,13 @@ public class carrepair extends javax.swing.JFrame {
             String checkBox4 = chkBox4.getText();
             String checkBox5 = chkBox5.getText();
             
+            
             SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
             String date = Date_Format.format(daterepair.getDate());
             
             SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
             String datep = Date_Format1.format(dateprb.getDate());
+            
             
             
             Class.forName(db_driver);
@@ -489,42 +545,39 @@ public class carrepair extends javax.swing.JFrame {
             pst.setString(8,date);
             pst.setString(9,datep);
             
-      
-            pst.executeUpdate();
-            
+            pst.executeUpdate();           
             JOptionPane.showMessageDialog(this, "Car Added.......");
             showData();
-            System.out.println(repair);
-            
-//       String sql = "insert into MotorbikeTB value('"+idcar+"','""','อื่นๆ','กรมสรรพกร','2500','ภาษีป้าย','18/07/62')";
-//        try {
-//            Connection c = connectDB();
-//            Statement stm = c.createStatement();//สร้าง statement
-//            stm.executeUpdate(sql);
-//            System.out.println("บันทึกข้อมูลเรียบร้อย");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } 
+            chkBox1.setSelected(false);
+            chkBox2.setSelected(false);
+            chkBox3.setSelected(false);
+            chkBox4.setSelected(false);
+            chkBox5.setSelected(false);
+            txtabout.setText("");
+            repair = "";
+ 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
                                      
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void chkBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox5ActionPerformed
         repair += "ล้อ/ยาง  \n";
+        
     }//GEN-LAST:event_chkBox5ActionPerformed
 
     private void chkBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox2ActionPerformed
         repair += "ระบบส่งกำลัง  \n";
+        
     }//GEN-LAST:event_chkBox2ActionPerformed
 
     private void chkBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox3ActionPerformed
         repair += "ระบบไฟ  \n";
+        
     }//GEN-LAST:event_chkBox3ActionPerformed
 
     private void id_carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_carActionPerformed
@@ -546,7 +599,7 @@ public class carrepair extends javax.swing.JFrame {
                     carcolor = rs.getString(4);
                     cartabian = rs.getString(5);
                 } catch (SQLException ex) {
-                    Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -556,6 +609,27 @@ public class carrepair extends javax.swing.JFrame {
             Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_id_carActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        DefaultTableModel d1 = (DefaultTableModel)jTable1.getModel();
+           int selectedrow = jTable1.getSelectedRow();
+           id_car.setSelectedItem(d1.getValueAt(selectedrow, 0).toString());
+           txtabout.setText(d1.getValueAt(selectedrow, 6).toString());
+           try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)d1.getValueAt(selectedrow,7).toString());
+            daterepair.setDate(date);        
+            } 
+            catch (ParseException ex) {
+                Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)d1.getValueAt(selectedrow,8).toString());
+            dateprb.setDate(date);        
+            } 
+            catch (ParseException ex) {
+                Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -616,8 +690,8 @@ public class carrepair extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea txtabout;
     // End of variables declaration//GEN-END:variables
