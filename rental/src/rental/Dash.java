@@ -79,12 +79,12 @@ public class Dash extends javax.swing.JFrame implements Runnable {
             if (data[i][4].toString().equals("-")) {
 
             } else {
-                String return_day = data[i][4].toString();
+                
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM", Locale.ENGLISH);
                 String timeString = formatter.format(new Date());
 
                 
-
+                String return_day = data[i][4].toString();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM", Locale.ENGLISH);
                 Date firstDate = sdf.parse(return_day);
                 Date secondDate = sdf.parse(timeString);

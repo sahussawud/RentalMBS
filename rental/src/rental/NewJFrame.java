@@ -81,7 +81,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     PreparedStatement pst;
     carregis c = new carregis();
     int index = 1;
-
+    Date date22,due22;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,7 +116,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         Email2 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
         carregis = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -142,7 +142,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel76 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         rent = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -173,7 +173,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel37 = new javax.swing.JLabel();
         mileinrent = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
         returncar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -204,6 +204,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         date1 = new com.toedter.calendar.JDateChooser();
         late = new javax.swing.JTextField();
         IDRent = new javax.swing.JComboBox<>();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
         menurepair = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
@@ -225,6 +227,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jLabel81 = new javax.swing.JLabel();
         Expensepanel = new javax.swing.JPanel();
         Summary1 = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
@@ -239,13 +242,14 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         addExpense = new javax.swing.JButton();
         deleteExpense = new javax.swing.JButton();
         editExpense = new javax.swing.JButton();
-        clearExpense = new javax.swing.JButton();
         IDexpense = new javax.swing.JTextField();
         reciever = new javax.swing.JTextField();
         amount_exp = new javax.swing.JTextField();
         dateeeee = new com.toedter.calendar.JDateChooser();
         jScrollPane6 = new javax.swing.JScrollPane();
         Expensetable = new javax.swing.JTable();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
         Summary = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         summary_tab = new javax.swing.JPanel();
@@ -261,10 +265,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         Wait = new javax.swing.JPanel();
         jLabel_c = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel92 = new javax.swing.JLabel();
-        jLabel93 = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel78 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -367,9 +369,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel47 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(1500, 900));
         setPreferredSize(new java.awt.Dimension(1700, 900));
+        getContentPane().setLayout(null);
 
         jPanel6.setLayout(new java.awt.CardLayout());
 
@@ -404,22 +408,25 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jScrollPane4.setViewportView(Table_cs);
 
         jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(487, 180, 668, 400);
+        jScrollPane4.setBounds(520, 190, 668, 400);
 
         jPanel7.setBackground(new java.awt.Color(255, 204, 102));
 
+        CardID2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         CardID2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CardID2ActionPerformed(evt);
             }
         });
 
+        textName2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         textName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textName2ActionPerformed(evt);
             }
         });
 
+        Edit_cs.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Edit_cs.setText("แก้ไข");
         Edit_cs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -427,20 +434,26 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        Tel2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Tel2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Tel2ActionPerformed(evt);
             }
         });
 
+        jLabel27.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel27.setText("เบอร์โทรติดต่อ");
 
+        jLabel28.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel28.setText("ID ลูกค้า");
 
+        jLabel29.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel29.setText("ชื่อ");
 
+        jLabel30.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel30.setText("รหัสบัตรประชาชน");
 
+        Add_cs.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Add_cs.setText("เพิ่ม");
         Add_cs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -448,6 +461,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        Delete_cs.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Delete_cs.setText("ลบ");
         Delete_cs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -455,14 +469,17 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        IDCustomer2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         IDCustomer2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDCustomer2ActionPerformed(evt);
             }
         });
 
+        jLabel31.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel31.setText("เพศ");
 
+        sex2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         sex2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ชาย", "หญิง" }));
         sex2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,28 +487,34 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        Nationality2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Nationality2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Nationality2ActionPerformed(evt);
             }
         });
 
+        textLName2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         textLName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textLName2ActionPerformed(evt);
             }
         });
 
+        jLabel32.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel32.setText("นามสกุล");
 
+        Email2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Email2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Email2ActionPerformed(evt);
             }
         });
 
+        jLabel33.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel33.setText("e-mail");
 
+        jLabel34.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel34.setText("สัญชาติ");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -499,13 +522,18 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
+                .addContainerGap(210, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel33)
                     .addComponent(Add_cs, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(Edit_cs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Delete_cs, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(137, 137, 137))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(IDCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addContainerGap()
@@ -525,14 +553,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                                 .addComponent(Tel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addGap(41, 41, 41)
-                            .addComponent(jLabel28)
-                            .addGap(18, 18, 18)
-                            .addComponent(IDCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel28)))
                     .addGap(37, 37, 37)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel32)
                         .addComponent(jLabel34)
-                        .addComponent(jLabel33)
                         .addComponent(jLabel31))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,7 +570,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(IDCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addComponent(jLabel33)
+                .addGap(34, 34, 34)
                 .addComponent(Add_cs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Edit_cs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -557,9 +586,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     .addContainerGap()
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(IDCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel28))
+                            .addComponent(jLabel28)
                             .addGap(28, 28, 28)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel29)
@@ -582,18 +609,17 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                             .addGap(56, 56, 56)
                             .addComponent(jLabel32)
                             .addGap(42, 42, 42)
-                            .addComponent(jLabel34)
-                            .addGap(43, 43, 43)
-                            .addComponent(jLabel33)))
-                    .addContainerGap(190, Short.MAX_VALUE)))
+                            .addComponent(jLabel34)))
+                    .addContainerGap(191, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(10, 180, 448, 400);
+        jPanel7.setBounds(10, 180, 493, 400);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/bg2.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, -110, 1520, 1080);
+        jLabel80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/customer.png"))); // NOI18N
+        jLabel80.setMaximumSize(new java.awt.Dimension(1390, 1000));
+        jPanel1.add(jLabel80);
+        jLabel80.setBounds(0, -110, 1430, 1070);
 
         javax.swing.GroupLayout customerLayout = new javax.swing.GroupLayout(customer);
         customer.setLayout(customerLayout);
@@ -614,16 +640,22 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel2.setBackground(new java.awt.Color(255, 204, 102));
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 500));
 
+        jLabel2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel2.setText("ID รถ");
 
+        jLabel3.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel3.setText("ยี่ห้อ");
 
+        jLabel4.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel4.setText("รุ่น");
 
+        jLabel5.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel5.setText("สี");
 
+        jLabel6.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel6.setText("ทะเบียน");
 
+        jLabel7.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel7.setText("ราคาเช่า/เดือน");
 
         txtid.addActionListener(new java.awt.event.ActionListener() {
@@ -632,10 +664,13 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel8.setText("สถานะ");
 
+        comsta.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         comsta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ว่าง", "ไม่ว่าง" }));
 
+        jLabel9.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel9.setText("ราคาเช่า/วัน");
 
         costday.addActionListener(new java.awt.event.ActionListener() {
@@ -644,8 +679,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel10.setText("Date");
 
+        jButton1.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton1.setText("เพิ่ม");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -653,6 +690,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton2.setText("แก้ไข");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -660,6 +698,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton3.setText("ลบ");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -690,7 +729,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                                     .addComponent(comsta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                                 .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(61, 61, 61)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -707,8 +746,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     .addComponent(txttype, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(costday, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txttabian, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datej, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(datej, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -717,43 +756,43 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(32, 32, 32)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtbrand, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(txttype, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)))
-                .addGap(9, 9, 9)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txttabian, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcost, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(costday, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(datej, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(comsta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)))
-                .addGap(37, 37, 37)
+                .addGap(20, 20, 20)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         carregis.add(jPanel2);
-        jPanel2.setBounds(10, 178, 544, 500);
+        jPanel2.setBounds(10, 178, 600, 500);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -780,11 +819,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jScrollPane1.setViewportView(jTable1);
 
         carregis.add(jScrollPane1);
-        jScrollPane1.setBounds(572, 187, 599, 415);
+        jScrollPane1.setBounds(630, 190, 599, 415);
 
-        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/bg3.png"))); // NOI18N
-        carregis.add(jLabel76);
-        jLabel76.setBounds(0, -10, 1434, 875);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/register.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        carregis.add(jLabel1);
+        jLabel1.setBounds(0, -10, 1428, 875);
 
         jPanel6.add(carregis, "card2");
 
@@ -795,31 +835,37 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         rent.add(jLabel16);
         jLabel16.setBounds(115, 48, 0, 0);
 
+        jLabel17.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel17.setText("ID รถ");
         rent.add(jLabel17);
-        jLabel17.setBounds(120, 230, 25, 23);
+        jLabel17.setBounds(360, 220, 43, 23);
 
+        jLabel18.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel18.setText("ID ลูกค้า");
         rent.add(jLabel18);
-        jLabel18.setBounds(121, 290, 40, 14);
+        jLabel18.setBounds(360, 280, 64, 28);
         rent.add(jLabel19);
         jLabel19.setBounds(115, 898, 0, 0);
 
+        jLabel20.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel20.setText("เลขที่การเช่า");
         rent.add(jLabel20);
-        jLabel20.setBounds(384, 236, 59, 14);
+        jLabel20.setBounds(610, 220, 90, 28);
 
+        jLabel21.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel21.setText("วันรับรถ");
         rent.add(jLabel21);
-        jLabel21.setBounds(121, 333, 35, 14);
+        jLabel21.setBounds(360, 320, 60, 28);
 
+        jLabel22.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel22.setText("วันคืนรถ");
         rent.add(jLabel22);
-        jLabel22.setBounds(406, 333, 37, 14);
+        jLabel22.setBounds(610, 320, 62, 28);
 
+        jLabel23.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel23.setText("ค่าเช่า");
         rent.add(jLabel23);
-        jLabel23.setBounds(121, 484, 28, 14);
+        jLabel23.setBounds(360, 460, 43, 28);
 
         idcar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,7 +873,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(idcar);
-        idcar.setBounds(198, 229, 140, 28);
+        idcar.setBounds(430, 220, 140, 28);
 
         cusid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -840,13 +886,13 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(cusid);
-        cusid.setBounds(198, 287, 140, 20);
+        cusid.setBounds(430, 280, 140, 30);
         rent.add(cusname);
-        cusname.setBounds(505, 287, 140, 20);
+        cusname.setBounds(740, 280, 140, 30);
         rent.add(date);
-        date.setBounds(199, 333, 139, 22);
+        date.setBounds(430, 320, 139, 22);
         rent.add(duedate);
-        duedate.setBounds(505, 333, 140, 22);
+        duedate.setBounds(740, 320, 140, 22);
 
         fee.setEditable(false);
         fee.addActionListener(new java.awt.event.ActionListener() {
@@ -855,11 +901,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(fee);
-        fee.setBounds(167, 481, 78, 20);
+        fee.setBounds(430, 460, 78, 30);
 
         txtava.setForeground(new java.awt.Color(255, 0, 51));
         rent.add(txtava);
-        txtava.setBounds(198, 195, 111, 28);
+        txtava.setBounds(430, 180, 111, 28);
 
         month.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -867,25 +913,26 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(month);
-        month.setBounds(338, 435, 123, 20);
+        month.setBounds(570, 420, 123, 30);
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel24.setText("จำนวนวันที่เช่า  :");
         rent.add(jLabel24);
-        jLabel24.setBounds(121, 431, 127, 22);
+        jLabel24.setBounds(360, 420, 121, 28);
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel25.setText("เดือน");
         rent.add(jLabel25);
-        jLabel25.setBounds(282, 431, 39, 22);
+        jLabel25.setBounds(520, 420, 38, 28);
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel26.setText("วัน");
         rent.add(jLabel26);
-        jLabel26.setBounds(505, 431, 20, 22);
+        jLabel26.setBounds(740, 420, 20, 28);
         rent.add(day);
-        day.setBounds(540, 435, 111, 20);
+        day.setBounds(790, 420, 111, 30);
 
+        jButton5.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton5.setText("คำนวน");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -893,8 +940,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(jButton5);
-        jButton5.setBounds(263, 475, 63, 32);
+        jButton5.setBounds(520, 460, 83, 30);
 
+        jButton6.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton6.setText("ยืนยัน");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -902,7 +950,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(jButton6);
-        jButton6.setBounds(338, 555, 109, 42);
+        jButton6.setBounds(570, 550, 109, 42);
 
         idrent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -910,107 +958,138 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(idrent);
-        idrent.setBounds(504, 233, 141, 20);
+        idrent.setBounds(740, 220, 141, 30);
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel36.setText("ชื่อลูกค้า");
         rent.add(jLabel36);
-        jLabel36.setBounds(379, 283, 64, 22);
+        jLabel36.setBounds(610, 270, 61, 28);
         rent.add(mud);
-        mud.setBounds(540, 481, 111, 20);
+        mud.setBounds(790, 460, 111, 30);
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel37.setText("จำนวนเงินมัดจำ");
+        jLabel37.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
+        jLabel37.setText("จำนวนเงินมัดจำ :");
         rent.add(jLabel37);
-        jLabel37.setBounds(405, 477, 117, 22);
+        jLabel37.setBounds(640, 460, 130, 28);
         rent.add(mileinrent);
-        mileinrent.setBounds(199, 385, 115, 20);
+        mileinrent.setBounds(430, 370, 115, 30);
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel38.setText("เลขไมล์");
         rent.add(jLabel38);
-        jLabel38.setBounds(121, 381, 59, 22);
+        jLabel38.setBounds(360, 370, 54, 28);
 
-        jLabel68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/bg4.png"))); // NOI18N
-        rent.add(jLabel68);
-        jLabel68.setBounds(0, 0, 1390, 875);
+        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/rent.png"))); // NOI18N
+        rent.add(jLabel76);
+        jLabel76.setBounds(0, -10, 1390, 875);
 
         jPanel6.add(rent, "card4");
 
         returncar.setBackground(new java.awt.Color(255, 204, 102));
+        returncar.setLayout(null);
 
-        jLabel11.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel11.setText("เลขที่ใบเช่า");
+        returncar.add(jLabel11);
+        jLabel11.setBounds(39, 176, 78, 23);
 
-        jLabel49.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel49.setText("วันที่เช่า");
+        returncar.add(jLabel49);
+        jLabel49.setBounds(39, 221, 55, 23);
 
-        DateHire.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        DateHire.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         DateHire.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         DateHire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DateHireActionPerformed(evt);
             }
         });
+        returncar.add(DateHire);
+        DateHire.setBounds(108, 219, 109, 32);
 
-        jLabel50.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel50.setText("รหัสลูกค้า");
+        returncar.add(jLabel50);
+        jLabel50.setBounds(263, 176, 72, 23);
 
-        IDCustomer.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        IDCustomer.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         IDCustomer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         IDCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDCustomerActionPerformed(evt);
             }
         });
+        returncar.add(IDCustomer);
+        IDCustomer.setBounds(364, 174, 85, 32);
 
-        jLabel51.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel51.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel51.setText("เลขไมล์คืน");
+        returncar.add(jLabel51);
+        jLabel51.setBounds(253, 267, 76, 23);
 
-        MileReturn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        MileReturn.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         MileReturn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         MileReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MileReturnActionPerformed(evt);
             }
         });
+        returncar.add(MileReturn);
+        MileReturn.setBounds(354, 265, 105, 32);
 
-        MileHire.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        MileHire.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         MileHire.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         MileHire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MileHireActionPerformed(evt);
             }
         });
+        returncar.add(MileHire);
+        MileHire.setBounds(120, 317, 91, 32);
 
-        jLabel52.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel52.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel52.setText("เลขไมล์เช่า");
+        returncar.add(jLabel52);
+        jLabel52.setBounds(39, 319, 78, 23);
 
-        jLabel53.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel53.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel53.setText("กม.");
+        returncar.add(jLabel53);
+        jLabel53.setBounds(477, 265, 25, 23);
 
-        jLabel54.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel54.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel54.setText("กม.");
+        returncar.add(jLabel54);
+        jLabel54.setBounds(213, 319, 25, 23);
 
-        jLabel55.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel55.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel55.setText("เลขพาหนะ");
+        returncar.add(jLabel55);
+        jLabel55.setBounds(39, 267, 76, 23);
 
-        IDCar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        IDCar.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         IDCar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         IDCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDCarActionPerformed(evt);
             }
         });
+        returncar.add(IDCar);
+        IDCar.setBounds(126, 265, 85, 32);
 
-        jLabel56.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel56.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setText("วันที่คืนรถ");
+        returncar.add(jLabel56);
+        jLabel56.setBounds(257, 220, 73, 24);
 
-        jLabel57.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel57.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel57.setText("รวมเป็นค่าปรับ");
+        returncar.add(jLabel57);
+        jLabel57.setBounds(39, 427, 107, 23);
 
-        TotalFine.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        TotalFine.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         TotalFine.setForeground(new java.awt.Color(204, 0, 0));
         TotalFine.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         TotalFine.addActionListener(new java.awt.event.ActionListener() {
@@ -1018,28 +1097,40 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 TotalFineActionPerformed(evt);
             }
         });
+        returncar.add(TotalFine);
+        TotalFine.setBounds(178, 425, 85, 32);
 
-        jLabel58.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel58.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel58.setText("คืนเกินกำหนด");
+        returncar.add(jLabel58);
+        jLabel58.setBounds(271, 319, 102, 23);
 
-        jLabel59.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel59.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel59.setText("วัน");
+        returncar.add(jLabel59);
+        jLabel59.setBounds(471, 319, 23, 23);
 
-        jLabel60.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel60.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel60.setText("บาท");
+        returncar.add(jLabel60);
+        jLabel60.setBounds(281, 427, 30, 23);
 
-        jButton7.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton7.setText("บันทึก");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        returncar.add(jButton7);
+        jButton7.setBounds(281, 483, 108, 35);
 
-        jLabel62.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel62.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel62.setText("จำนวนเงินมัดจำ");
+        returncar.add(jLabel62);
+        jLabel62.setBounds(39, 371, 116, 23);
 
-        Deposit.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Deposit.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         Deposit.setForeground(new java.awt.Color(204, 0, 0));
         Deposit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         Deposit.addActionListener(new java.awt.event.ActionListener() {
@@ -1047,19 +1138,24 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 DepositActionPerformed(evt);
             }
         });
+        returncar.add(Deposit);
+        Deposit.setBounds(178, 369, 85, 32);
 
-        jLabel63.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jLabel63.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel63.setText("บาท");
+        returncar.add(jLabel63);
+        jLabel63.setBounds(281, 371, 30, 23);
 
-        jButton8.setFont(new java.awt.Font("KodchiangUPC", 1, 26)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton8.setText("คำนวณ");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+        returncar.add(jButton8);
+        jButton8.setBounds(320, 421, 89, 35);
 
-        jTable2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1085,161 +1181,56 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         });
         jScrollPane2.setViewportView(jTable2);
 
+        returncar.add(jScrollPane2);
+        jScrollPane2.setBounds(521, 174, 584, 478);
+
         date1.setDate(new java.util.Date(1574166507000L));
         date1.setDateFormatString("d MMMMM, yyyy");
-        date1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        date1.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
+        returncar.add(date1);
+        date1.setBounds(364, 219, 139, 28);
 
+        late.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         late.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lateActionPerformed(evt);
             }
         });
+        returncar.add(late);
+        late.setBounds(384, 321, 69, 34);
 
+        IDRent.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         IDRent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDRentActionPerformed(evt);
             }
         });
+        returncar.add(IDRent);
+        IDRent.setBounds(135, 178, 82, 34);
+        returncar.add(jLabel68);
+        jLabel68.setBounds(0, 0, 0, 0);
 
-        javax.swing.GroupLayout returncarLayout = new javax.swing.GroupLayout(returncar);
-        returncar.setLayout(returncarLayout);
-        returncarLayout.setHorizontalGroup(
-            returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returncarLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(returncarLayout.createSequentialGroup()
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, returncarLayout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(MileHire))
-                            .addGroup(returncarLayout.createSequentialGroup()
-                                .addComponent(jLabel55)
-                                .addGap(18, 18, 18)
-                                .addComponent(IDCar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(returncarLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel54)
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel58)
-                                .addGap(18, 18, 18)
-                                .addComponent(late, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, returncarLayout.createSequentialGroup()
-                                    .addGap(42, 42, 42)
-                                    .addComponent(jLabel51)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(MileReturn)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel53))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, returncarLayout.createSequentialGroup()
-                                    .addGap(153, 153, 153)
-                                    .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(IDCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(returncarLayout.createSequentialGroup()
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel62)
-                            .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Deposit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returncarLayout.createSequentialGroup()
-                                    .addComponent(jLabel57)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                    .addComponent(TotalFine, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel63)
-                            .addGroup(returncarLayout.createSequentialGroup()
-                                .addComponent(jLabel60)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton8))
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(returncarLayout.createSequentialGroup()
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(returncarLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(IDRent, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(returncarLayout.createSequentialGroup()
-                                .addComponent(jLabel49)
-                                .addGap(18, 18, 18)
-                                .addComponent(DateHire, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(40, 40, 40)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel56)
-                            .addComponent(jLabel50))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1349, Short.MAX_VALUE))
-        );
-        returncarLayout.setVerticalGroup(
-            returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(returncarLayout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(returncarLayout.createSequentialGroup()
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DateHire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(IDCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(MileReturn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(27, 27, 27)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MileHire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(late, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Deposit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(returncarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TotalFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(322, Short.MAX_VALUE))
-        );
+        jLabel77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/return.png"))); // NOI18N
+        returncar.add(jLabel77);
+        jLabel77.setBounds(0, -10, 1390, 875);
 
         jPanel6.add(returncar, "card5");
 
         menurepair.setBackground(new java.awt.Color(255, 204, 102));
         menurepair.setLayout(null);
 
+        jLabel61.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel61.setText("ID รถ");
         menurepair.add(jLabel61);
-        jLabel61.setBounds(30, 180, 40, 14);
+        jLabel61.setBounds(30, 180, 50, 28);
 
+        jLabel64.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel64.setText("ประเภทการซ่อมบำรุง");
         menurepair.add(jLabel64);
-        jLabel64.setBounds(30, 220, 120, 14);
+        jLabel64.setBounds(30, 220, 160, 28);
 
+        chkBox4.setBackground(new java.awt.Color(255, 204, 102));
+        chkBox4.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         chkBox4.setText("ระบบของเหลว");
         chkBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1247,9 +1238,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(chkBox4);
-        chkBox4.setBounds(160, 310, 190, 23);
+        chkBox4.setBounds(200, 310, 190, 30);
 
-        chkBox1.setBackground(new java.awt.Color(255, 153, 102));
+        chkBox1.setBackground(new java.awt.Color(255, 204, 102));
+        chkBox1.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         chkBox1.setText("ระบบเครื่องยนต์");
         chkBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1257,8 +1249,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(chkBox1);
-        chkBox1.setBounds(160, 220, 180, 23);
+        chkBox1.setBounds(200, 220, 180, 30);
 
+        chkBox3.setBackground(new java.awt.Color(255, 204, 102));
+        chkBox3.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         chkBox3.setText("ระบบไฟ");
         chkBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1266,8 +1260,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(chkBox3);
-        chkBox3.setBounds(160, 280, 92, 23);
+        chkBox3.setBounds(200, 280, 92, 30);
 
+        chkBox2.setBackground(new java.awt.Color(255, 204, 102));
+        chkBox2.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         chkBox2.setText("ระบบส่งกำลัง");
         chkBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1275,23 +1271,27 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(chkBox2);
-        chkBox2.setBounds(160, 250, 180, 23);
+        chkBox2.setBounds(200, 250, 180, 30);
 
+        jLabel65.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel65.setText("รายละเอียด");
         menurepair.add(jLabel65);
-        jLabel65.setBounds(30, 410, 60, 14);
+        jLabel65.setBounds(30, 380, 90, 28);
 
+        jLabel66.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel66.setText("วันที่ซ่อม");
         menurepair.add(jLabel66);
-        jLabel66.setBounds(30, 580, 70, 14);
+        jLabel66.setBounds(20, 550, 70, 28);
 
         txtabout.setColumns(20);
         txtabout.setRows(5);
         jScrollPane3.setViewportView(txtabout);
 
         menurepair.add(jScrollPane3);
-        jScrollPane3.setBounds(110, 410, 309, 139);
+        jScrollPane3.setBounds(130, 380, 309, 139);
 
+        chkBox5.setBackground(new java.awt.Color(255, 204, 102));
+        chkBox5.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         chkBox5.setText("ล้อ/ยาง");
         chkBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1299,7 +1299,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(chkBox5);
-        chkBox5.setBounds(160, 340, 92, 23);
+        chkBox5.setBounds(200, 340, 92, 30);
 
         id_carrepair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1307,15 +1307,16 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(id_carrepair);
-        id_carrepair.setBounds(80, 180, 97, 20);
+        id_carrepair.setBounds(90, 190, 97, 20);
         menurepair.add(daterepair);
-        daterepair.setBounds(110, 580, 144, 20);
+        daterepair.setBounds(90, 550, 144, 20);
         menurepair.add(dateprb);
-        dateprb.setBounds(350, 580, 137, 20);
+        dateprb.setBounds(360, 550, 137, 20);
 
+        jLabel67.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel67.setText("วันหมด พรบ.");
         menurepair.add(jLabel67);
-        jLabel67.setBounds(270, 580, 80, 14);
+        jLabel67.setBounds(250, 550, 100, 28);
 
         repairtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1341,8 +1342,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jScrollPane5.setViewportView(repairtable);
 
         menurepair.add(jScrollPane5);
-        jScrollPane5.setBounds(500, 160, 698, 534);
+        jScrollPane5.setBounds(500, 180, 698, 534);
 
+        jButton9.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton9.setText("เพิ่ม");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1350,8 +1352,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(jButton9);
-        jButton9.setBounds(190, 640, 135, 33);
+        jButton9.setBounds(190, 610, 135, 33);
 
+        jButton10.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton10.setText("แก้ไข");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1359,23 +1362,31 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(jButton10);
-        jButton10.setBounds(190, 690, 135, 33);
+        jButton10.setBounds(190, 660, 135, 33);
 
+        jButton12.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jButton12.setText("ยกเลิก");
         menurepair.add(jButton12);
-        jButton12.setBounds(190, 740, 135, 33);
+        jButton12.setBounds(190, 710, 135, 33);
+
+        jLabel81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/repair.png"))); // NOI18N
+        menurepair.add(jLabel81);
+        jLabel81.setBounds(0, -10, 1390, 875);
 
         jPanel6.add(menurepair, "card6");
 
         Expensepanel.setBackground(new java.awt.Color(255, 204, 102));
+        Expensepanel.setLayout(null);
 
         Summary1.setBackground(new java.awt.Color(255, 204, 102));
 
-        jLabel70.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel70.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel70.setText("วันที่ชำระ :");
 
+        jLabel71.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel71.setText("ประเภทค่าใช้จ่าย : ");
 
+        Type.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ค่าซ่อมบำรุง", "ค่าคอมมิสชั่น", "เงินเดือนพนักงาน", "ชำระหนี้", "อื่นๆ" }));
         Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1383,18 +1394,23 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jLabel72.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel72.setText("ผู้รับการชำระ : ");
 
+        jLabel73.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel73.setText("จำนวนเงิน :");
 
+        jLabel74.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel74.setText("รายละเอียดการชำระ :");
 
         detail.setColumns(20);
         detail.setRows(5);
         jScrollPane9.setViewportView(detail);
 
+        jLabel75.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel75.setText("รายจ่ายเลขที่ :");
 
+        addExpense.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         addExpense.setText("เพิ่ม");
         addExpense.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1407,6 +1423,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        deleteExpense.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         deleteExpense.setText("ลบ");
         deleteExpense.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1419,6 +1436,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        editExpense.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         editExpense.setText("เเก้ไข");
         editExpense.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1428,18 +1446,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         editExpense.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editExpenseActionPerformed(evt);
-            }
-        });
-
-        clearExpense.setText("ล้าง");
-        clearExpense.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clearExpenseMouseClicked(evt);
-            }
-        });
-        clearExpense.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearExpenseActionPerformed(evt);
             }
         });
 
@@ -1461,6 +1467,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        Expensetable.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         Expensetable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1485,17 +1492,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         Summary1Layout.setHorizontalGroup(
             Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Summary1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(52, 52, 52)
                 .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Summary1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Summary1Layout.createSequentialGroup()
                         .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel71)
@@ -1503,37 +1501,47 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                             .addComponent(jLabel72)
                             .addComponent(jLabel73)
                             .addComponent(jLabel75))
-                        .addGap(18, 18, 18)
-                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Type, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reciever, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(amount_exp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
+                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Type, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateeeee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IDexpense, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(reciever, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(amount_exp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel74)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Summary1Layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Summary1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
+                        .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Summary1Layout.createSequentialGroup()
                         .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dateeeee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                            .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
         Summary1Layout.setVerticalGroup(
             Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Summary1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane6)
+                .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Summary1Layout.createSequentialGroup()
-                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel75)
                             .addComponent(IDexpense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
+                        .addGap(3, 3, 3)
                         .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel70)
+                            .addGroup(Summary1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel70))
                             .addComponent(dateeeee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
+                        .addGap(26, 26, 26)
                         .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel71)
                             .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1552,42 +1560,32 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                         .addComponent(jLabel74)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Summary1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(clearExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(Summary1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(addExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)))))
-                .addGap(100, 100, 100))
+                        .addGap(38, 38, 38)
+                        .addComponent(addExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Summary1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout ExpensepanelLayout = new javax.swing.GroupLayout(Expensepanel);
-        Expensepanel.setLayout(ExpensepanelLayout);
-        ExpensepanelLayout.setHorizontalGroup(
-            ExpensepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ExpensepanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(Summary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1324, Short.MAX_VALUE))
-        );
-        ExpensepanelLayout.setVerticalGroup(
-            ExpensepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ExpensepanelLayout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(Summary1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
-        );
+        Expensepanel.add(Summary1);
+        Summary1.setBounds(50, 110, 1084, 630);
+        Expensepanel.add(jLabel79);
+        jLabel79.setBounds(0, 0, 0, 0);
+
+        jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/expense.png"))); // NOI18N
+        Expensepanel.add(jLabel82);
+        jLabel82.setBounds(0, -10, 1390, 875);
 
         jPanel6.add(Expensepanel, "card7");
 
         Summary.setBackground(new java.awt.Color(204, 204, 204));
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 204, 102));
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTabbedPane1MouseClicked(evt);
@@ -1597,6 +1595,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         summary_tab.setLayout(new java.awt.GridLayout(2, 1));
 
         user_panel.setLayout(new java.awt.GridLayout(1, 3));
+
+        top_plane.setBackground(new java.awt.Color(255, 204, 102));
+        top_plane.setLayout(null);
 
         status_panel.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -1698,58 +1699,26 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         status_panel.add(Wait);
 
-        jPanel12.setMinimumSize(new java.awt.Dimension(150, 114));
-        jPanel12.setLayout(new java.awt.GridLayout(2, 1));
+        top_plane.add(status_panel);
+        status_panel.setBounds(10, 356, 407, 106);
+        top_plane.add(jCalendar1);
+        jCalendar1.setBounds(160, 130, 270, 208);
 
-        jLabel92.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); // NOI18N
-        jLabel92.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel92.setText("Summary");
-        jPanel12.add(jLabel92);
-
-        jLabel93.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel93.setText("welcome back mr.sahussawud");
-        jPanel12.add(jLabel93);
-
-        javax.swing.GroupLayout top_planeLayout = new javax.swing.GroupLayout(top_plane);
-        top_plane.setLayout(top_planeLayout);
-        top_planeLayout.setHorizontalGroup(
-            top_planeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, top_planeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(756, 756, 756))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, top_planeLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        top_planeLayout.setVerticalGroup(
-            top_planeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(top_planeLayout.createSequentialGroup()
-                .addGroup(top_planeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(top_planeLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, top_planeLayout.createSequentialGroup()
-                        .addContainerGap(78, Short.MAX_VALUE)
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)))
-                .addComponent(status_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/dashboard.png"))); // NOI18N
+        top_plane.add(jLabel78);
+        jLabel78.setBounds(-60, -70, 1390, 1010);
 
         user_panel.add(top_plane);
 
-        jLabel94.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jPanel11.setBackground(new java.awt.Color(255, 204, 102));
+
+        jLabel94.setFont(new java.awt.Font("Kanit Light", 1, 24)); // NOI18N
         jLabel94.setText("Clock");
 
         jScrollPane12.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jList1.setFont(new java.awt.Font("Angsana New", 2, 24)); // NOI18N
+        jList1.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -1766,21 +1735,20 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel94)
-                .addGap(0, 522, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel94)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel94)
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addComponent(jLabel94)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1793,6 +1761,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         detail_panel.setLayout(new java.awt.BorderLayout());
 
         table_panel.setLayout(new java.awt.BorderLayout(30, 30));
+
+        jPanel19.setBackground(new java.awt.Color(255, 204, 102));
 
         dashboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1836,7 +1806,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
+                .addContainerGap(247, Short.MAX_VALUE)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(222, 222, 222))
         );
@@ -1845,7 +1815,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(583, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("จักรยานยนต์ทั้งหมด", jPanel19);
@@ -1918,12 +1888,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(453, Short.MAX_VALUE)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(120, 120, 120))
         );
@@ -1940,10 +1910,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         jTabbedPane1.addTab("Summary", summary_tab);
 
-        jLabel95.setFont(new java.awt.Font("Leelawadee UI", 2, 36)); // NOI18N
+        jPanel8.setBackground(new java.awt.Color(255, 204, 102));
+
+        jLabel95.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
         jLabel95.setText("Dashboard ");
 
-        select_month.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        select_month.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         select_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01January", "02February", "03March", "04April", "05May", "06June", "07July", "08August", "09September", "10October", "11November", "12December" }));
         select_month.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1951,7 +1923,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        select_year.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        select_year.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         select_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
         select_year.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1963,7 +1935,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         available_p2.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel96.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel96.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         jLabel96.setForeground(new java.awt.Color(153, 153, 153));
         jLabel96.setText("จำนวนรายการ");
 
@@ -1995,7 +1967,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         available_p4.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel97.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel97.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         jLabel97.setForeground(new java.awt.Color(255, 0, 0));
         jLabel97.setText("รายจ่าย");
 
@@ -2008,7 +1980,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             available_p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(available_p4Layout.createSequentialGroup()
                 .addComponent(jLabel97)
-                .addGap(0, 195, Short.MAX_VALUE))
+                .addGap(0, 200, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, available_p4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2027,7 +1999,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         available_p3.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel98.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel98.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         jLabel98.setForeground(new java.awt.Color(51, 153, 0));
         jLabel98.setText("รายรับ");
 
@@ -2050,7 +2022,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             available_p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(available_p3Layout.createSequentialGroup()
                 .addComponent(jLabel98)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2059,7 +2031,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         available_p1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel99.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel99.setFont(new java.awt.Font("Kanit Light", 1, 36)); // NOI18N
         jLabel99.setForeground(new java.awt.Color(51, 153, 0));
         jLabel99.setText("ยอดขายทั้งหมด");
 
@@ -2118,7 +2090,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         );
         pnChartLayout.setVerticalGroup(
             pnChartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
 
         btn3DPie.setText("โครงสร้างรายจ่าย");
@@ -2135,8 +2107,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jLabel100.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel100.setText("เดือน :");
 
+        jLabel101.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel101.setText("ปี :");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -2144,7 +2118,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 182, Short.MAX_VALUE)
+                .addGap(0, 192, Short.MAX_VALUE)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1032, 1032, 1032))
             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -2154,11 +2128,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                         .addComponent(jLabel95)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel100)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(select_month, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel101)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(select_year, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
@@ -2171,7 +2145,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(pnChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2209,19 +2183,20 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         SummaryLayout.setHorizontalGroup(
             SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SummaryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         SummaryLayout.setVerticalGroup(
             SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SummaryLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel6.add(Summary, "card8");
+
+        getContentPane().add(jPanel6);
+        jPanel6.setBounds(301, 0, 2454, 998);
 
         sidebar.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -2460,7 +2435,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("DashBoard");
 
-        jLabel48.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\7.png")); // NOI18N
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/7.png"))); // NOI18N
 
         javax.swing.GroupLayout sidedashboardLayout = new javax.swing.GroupLayout(sidedashboard);
         sidedashboard.setLayout(sidedashboardLayout);
@@ -2503,7 +2478,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Expenses");
 
-        jLabel47.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\6.png")); // NOI18N
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/6.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2565,20 +2540,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         sidecustomer.getAccessibleContext().setAccessibleName("");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(sidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(sidebar);
+        sidebar.setBounds(0, 0, 301, 974);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2724,7 +2687,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         DefaultTableModel d1 = (DefaultTableModel) Table_cs.getModel();
         int selectedrow = Table_cs.getSelectedRow();
 
-        String id = d1.getValueAt(selectedrow, 0).toString();
+        String id = IDCustomer2.getText();
 
         int dialogResult = JOptionPane.showConfirmDialog(this, "Do you want to delete your data", "Warning", JOptionPane.YES_NO_OPTION);
         if (dialogResult == JOptionPane.YES_OPTION) {
@@ -3311,7 +3274,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
                 mile = rs.getString(8);
                 mudjjum = rs.getInt(7);
-                duedatee = rs.getString(4);
+                duedatee = rs.getString(5);
                 cusidd = rs.getString(3);
                 caridd = rs.getString(2);
 
@@ -3467,7 +3430,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Car Added.......");
-            showData();
+            showData2();
             chkBox1.setSelected(false);
             chkBox2.setSelected(false);
             chkBox3.setSelected(false);
@@ -3520,7 +3483,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 pst.setString(9, idcar4);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Car Update.......");
-                showData();
+                showData2();
                 repair = "";
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
@@ -3752,20 +3715,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             Logger.getLogger(carregis.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_editExpenseActionPerformed
-
-    private void clearExpenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearExpenseMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clearExpenseMouseClicked
-
-    private void clearExpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearExpenseActionPerformed
-        // TODO add your handling code here:
-        IDexpense.setText("");
-        dateeeee.setDate(null);
-        reciever.setText("");
-        amount_exp.setText("");
-        detail.setText("");
-        Type.setSelectedIndex(-1);
-    }//GEN-LAST:event_clearExpenseActionPerformed
 
     private void IDexpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDexpenseActionPerformed
         // TODO add your handling code here:
@@ -4025,6 +3974,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
             SimpleDateFormat Date_Format2 = new SimpleDateFormat("dd-MM-yyyy");
             String due2 = Date_Format2.format(duedate.getDate());
+           
             System.out.println(due2);
             System.out.println(date2);
             Class.forName("com.mysql.jdbc.Driver");
@@ -4073,11 +4023,36 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         try {
             String car_id = idcar.getSelectedItem().toString();
             String cus_id = cusname.getText();
-            int monthnum = Integer.parseInt(month.getText());
-            int daynum = Integer.parseInt(day.getText());
+            
             int monthcost = 0;
             int daycost = 0;
+            
+            
+                Date date22 = date.getDate();
+                Date due22 = duedate.getDate();
 
+            
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                String timeString = formatter.format(date22);
+                
+                int m = Integer.parseInt(timeString.substring(3, 5));
+                String timeString2 = formatter.format(due22);
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                Date firstDate = sdf.parse(timeString);
+                Date secondDate = sdf.parse(timeString2);
+                
+              //l_month[m-1];
+               double day_diff = (secondDate.getTime() - firstDate.getTime())/(1000*60*60*24)+1;
+               int year3 = (int)Math.floor(day_diff/365);
+               int month2 = (int)(day_diff%365)/l_month[m-1];
+               int day2 = (int)((day_diff%365)%l_month[m-1]);
+            System.out.println("day different**"+day2+"**month diff***"+month2+"*ปี***"+year3+"****จำนวนวันของเดือนเช่า ="+m+"****เริ่มเช่า = "+timeString+" ถึง "+timeString2);
+            
+           
+             
+            
+           
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
             PreparedStatement pst4 = con.prepareStatement("select * from carregis where carid = ?");
@@ -4094,23 +4069,28 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 }
 
             }
+            month.setText(""+month2);
+            day.setText(""+day2);
             System.out.println(monthcost);
             System.out.println(daycost);
             System.out.println("1515");
-            if (monthnum != 0 && daynum != 0) {
-                fee.setText("" + (monthcost * monthnum + daycost * daynum));
+            if (month2 != 0 && day2 != 0) {
+                fee.setText("" + (monthcost * month2 + daycost * day2));
 
-            } else if (monthnum == 0 && daynum != 0) {
-                fee.setText("" + (daycost * daynum));
+            } else if (month2 == 0 && day2 != 0) {
+                fee.setText("" + (daycost * day2));
 
-            } else if (monthnum != 0 && daynum == 0) {
-                fee.setText("" + (monthcost * monthnum));
+            } else if (month2 != 0 && day2 == 0) {
+                fee.setText("" + (monthcost * month2));
 
             }
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -4763,7 +4743,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JCheckBox chkBox3;
     private javax.swing.JCheckBox chkBox4;
     private javax.swing.JCheckBox chkBox5;
-    private javax.swing.JButton clearExpense;
     private javax.swing.JComboBox<String> comsta;
     private javax.swing.JTextField costday;
     private javax.swing.JTextField cusid;
@@ -4875,13 +4854,17 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
-    private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
@@ -4895,7 +4878,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
