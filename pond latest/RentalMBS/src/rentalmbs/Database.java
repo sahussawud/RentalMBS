@@ -51,7 +51,7 @@ public class Database {
     }
 
     //table in Register panal
-    public JTable getCarregisTB() throws SQLException {
+    public JTable getRegisTB() throws SQLException {
 
         JTable j = new JTable();
 
@@ -82,7 +82,7 @@ public class Database {
         return j;
     }
     
-    public void addCarregisTB(String idrod, String band,String type,String color, String tabian,String cost,String status,String costd, Date day) throws SQLException{
+    public void addregisTB(String idrod, String band,String type,String color, String tabian,String cost,String status,String costd, Date day) throws SQLException{
         
                 Statement stmt = con.createStatement();
                 PreparedStatement pst;
@@ -105,7 +105,9 @@ public class Database {
                 
       }
     
+    public void editRegisTB(){}
     
+    public void deleteRegisTB(){}
     
     
     //from  showData();
