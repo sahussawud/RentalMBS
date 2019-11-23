@@ -240,7 +240,8 @@ public class Database {
         return dashboard;
     }
 
-    public void addDashboardTB() {
+    public void addDashboardTB(){
+        
     }
 
     public void editDashboardTB() {
@@ -277,6 +278,15 @@ public class Database {
 
         return CheckTB;
     }
+     public void addCheck() {
+    }
+
+    public void editCheckTB() {
+    }
+
+    public void deleteCheckTB() {
+    }
+    
 
     public JTable getTransTB() throws SQLException {
         JTable transactionTB = new JTable();
@@ -348,6 +358,17 @@ public class Database {
             count++;
         }
         return transactionTB;
+    }
+    public void addCheck(){
+        
+    }
+
+    public void editCheckTB(){
+        
+    }
+
+    public void deleteCheckTB(){
+        
     }
     //----------------------------------------------------------------------------------
 
@@ -504,4 +525,21 @@ public class Database {
         return idcar;
     }
 
+    public void rentUpdate(String rent_id,String mb_id,String cus_id,String date2,String due2,String fee,String binder,String Mile) throws SQLException{
+        
+            PreparedStatement pst3 = con.prepareStatement("insert into Rental(RentalNum,car_id,cust_id,due,date,fee,mudjum,mile,rentstatus) values(?,?,?,?,?,?,?,?,?)");
+            pst3.setString(1, rent_id);
+            pst3.setString(2, mb_id);
+            pst3.setString(3, cus_id);
+            pst3.setString(4, date2);
+            pst3.setString(5, due2);
+            pst3.setString(6, fee);
+            pst3.setString(7, binder);
+            pst3.setString(8, Mile);
+            pst3.setString(9, "ยังไม่คืน");
+            pst3.executeUpdate();
+            PreparedStatement pst2 = con.prepareStatement("update carregis set carstatus = 'ไม่ว่าง' where carid = ?");
+            pst2.setString(1, mb_id);
+            pst2.executeUpdate();
+    }
 }
