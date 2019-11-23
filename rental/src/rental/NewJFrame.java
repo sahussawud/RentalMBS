@@ -1700,7 +1700,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             available_pLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(available_pLayout.createSequentialGroup()
                 .addComponent(jLabel89)
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, available_pLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel_a)
@@ -1779,11 +1779,11 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         status_panel.add(Wait);
 
         top_plane.add(status_panel);
-        status_panel.setBounds(10, 356, 407, 106);
+        status_panel.setBounds(140, 356, 460, 106);
 
         jCalendar1.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
         top_plane.add(jCalendar1);
-        jCalendar1.setBounds(140, 130, 370, 210);
+        jCalendar1.setBounds(140, 130, 460, 210);
 
         jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/dashboard.png"))); // NOI18N
         top_plane.add(jLabel78);
@@ -1842,6 +1842,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         detail_panel.setLayout(new java.awt.BorderLayout());
 
         table_panel.setLayout(new java.awt.BorderLayout(30, 30));
+        detail_panel.add(table_panel, java.awt.BorderLayout.CENTER);
+
+        jPanel13.add(detail_panel, java.awt.BorderLayout.PAGE_START);
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 204, 102));
         jTabbedPane2.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
@@ -1900,18 +1903,17 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(583, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("จักรยานยนต์ทั้งหมด", jPanel19);
 
+        jPanel10.setBackground(new java.awt.Color(255, 204, 102));
+
         dashboard2.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         dashboard2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "วันที่", "รายการ", "ประเภท", "ราคา", "วันคืนรถ"
@@ -1932,26 +1934,26 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addGap(342, 342, 342)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("ธุรกรรมล่าสุด", jPanel10);
 
+        jPanel14.setBackground(new java.awt.Color(255, 204, 102));
+
+        dashboard3.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         dashboard3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "เลขที่รถ", "ยี่ห้อ", "ทะเบียน", "ปัญหา", "รายละเอียด", "วันที่ซ่อม", "วันสิ้นสุด พรบ."
@@ -1971,26 +1973,22 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(174, Short.MAX_VALUE)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addGap(168, 168, 168))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(453, Short.MAX_VALUE)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("รายการตรวจสอบ", jPanel14);
 
-        table_panel.add(jTabbedPane2, java.awt.BorderLayout.CENTER);
-
-        detail_panel.add(table_panel, java.awt.BorderLayout.CENTER);
-
-        jPanel13.add(detail_panel, java.awt.BorderLayout.PAGE_START);
+        jPanel13.add(jTabbedPane2, java.awt.BorderLayout.CENTER);
 
         summary_tab.add(jPanel13);
 
