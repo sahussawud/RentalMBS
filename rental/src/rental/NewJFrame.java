@@ -1664,6 +1664,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         Summary.setBackground(new java.awt.Color(204, 204, 204));
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 204, 102));
+        jTabbedPane1.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTabbedPane1MouseClicked(evt);
@@ -1828,7 +1829,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel94)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1842,8 +1843,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         table_panel.setLayout(new java.awt.BorderLayout(30, 30));
 
+        jTabbedPane2.setBackground(new java.awt.Color(255, 204, 102));
+        jTabbedPane2.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
+
         jPanel19.setBackground(new java.awt.Color(255, 204, 102));
 
+        dashboard.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         dashboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1001", "yamaha nouvo 125 2กช 8256 ", "Available", null, null, null, "ืืีืีเช็คเมื่อ 21/07/63"},
@@ -1900,6 +1905,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
         jTabbedPane2.addTab("จักรยานยนต์ทั้งหมด", jPanel19);
 
+        dashboard2.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         dashboard2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -2262,7 +2268,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnLineChart, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(pnChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Sale", jPanel8);
