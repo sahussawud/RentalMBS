@@ -627,7 +627,7 @@
                               <Component id="txttabian" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
                               <Component id="datej" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="11" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4162,6 +4162,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel41">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\05\Documents\NetBeansProjects\rental\img\75210217_1336767483168345_6444166070470180864_n.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel40"/>
               </Properties>
             </Component>
@@ -4233,6 +4236,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\05\Documents\NetBeansProjects\rental\img\75587523_542018146581752_2667128756140769280_n.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel40"/>
               </Properties>
             </Component>
@@ -4348,6 +4354,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel46">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\05\Documents\NetBeansProjects\rental\img\78542563_519691698873012_9093333019976007680_n.png"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -4415,6 +4426,9 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel39">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\05\Desktop\OOP PROJECT\test.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="jLabel39"/>
           </Properties>
         </Component>
