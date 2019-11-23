@@ -359,17 +359,7 @@ public class Database {
         }
         return transactionTB;
     }
-    public void addCheck(){
-        
-    }
 
-    public void editCheckTB(){
-        
-    }
-
-    public void deleteCheckTB(){
-        
-    }
     //----------------------------------------------------------------------------------
 
     //update Table2 in repairPanel--------------------------------------------------------
