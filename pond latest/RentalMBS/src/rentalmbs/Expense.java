@@ -1,3 +1,4 @@
+package rentalmbs;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -42,14 +43,14 @@ public class Expense {
 
     @Override
     public String toString() {
-        return "ExpenseInfo{" + "RepairTB=" + RepairTB + ", ExpenseID=" + ExpenseID + ", ExpType=" + ExpType + ", payee=" + payee + ", detail=" + detail + ", ExpenseDate=" + ExpenseDate + ", cost=" + cost + '}';
+        return "ExpenseInfo{" + "ExpenseTB=" + ExpenseTB + ", ExpenseID=" + ExpenseID + ", ExpType=" + ExpType + ", payee=" + payee + ", detail=" + detail + ", ExpenseDate=" + ExpenseDate + ", cost=" + cost + '}';
     }
 
     
     public JTable getExpenseTB() {
         return ExpenseTB;
     }
-    public void setRepairTB(JTable RepairTB) {
+    public void setExpenseTB(JTable ExpenseTB) {
         this.ExpenseTB = ExpenseTB;
     }
     public String getExpenseID() {
@@ -88,6 +89,8 @@ public class Expense {
     public void setCost(double cost) {
         this.cost = cost;
     }
+
+   
  
  
     
