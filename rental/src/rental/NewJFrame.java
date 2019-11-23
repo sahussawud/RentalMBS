@@ -622,7 +622,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(10, 180, 563, 425);
+        jPanel7.setBounds(10, 180, 566, 425);
 
         jLabel80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/customer.png"))); // NOI18N
         jLabel80.setMaximumSize(new java.awt.Dimension(1390, 1000));
@@ -775,7 +775,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     .addComponent(costday, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txttabian, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datej, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,29 +873,29 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel18.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel18.setText("ID ลูกค้า");
         rent.add(jLabel18);
-        jLabel18.setBounds(360, 280, 64, 28);
+        jLabel18.setBounds(360, 280, 66, 24);
         rent.add(jLabel19);
         jLabel19.setBounds(115, 898, 0, 0);
 
         jLabel20.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel20.setText("เลขที่การเช่า");
         rent.add(jLabel20);
-        jLabel20.setBounds(640, 220, 90, 28);
+        jLabel20.setBounds(640, 220, 98, 24);
 
         jLabel21.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel21.setText("วันรับรถ");
         rent.add(jLabel21);
-        jLabel21.setBounds(360, 330, 60, 28);
+        jLabel21.setBounds(360, 330, 63, 24);
 
         jLabel22.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel22.setText("วันคืนรถ");
         rent.add(jLabel22);
-        jLabel22.setBounds(670, 330, 62, 28);
+        jLabel22.setBounds(670, 330, 66, 24);
 
         jLabel23.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel23.setText("ค่าเช่า");
         rent.add(jLabel23);
-        jLabel23.setBounds(360, 500, 43, 28);
+        jLabel23.setBounds(360, 500, 49, 24);
 
         idcar.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         idcar.addActionListener(new java.awt.event.ActionListener() {
@@ -959,17 +959,17 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel24.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel24.setText("จำนวนวันที่เช่า  :");
         rent.add(jLabel24);
-        jLabel24.setBounds(360, 440, 121, 28);
+        jLabel24.setBounds(360, 440, 128, 24);
 
         jLabel25.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel25.setText("เดือน");
         rent.add(jLabel25);
-        jLabel25.setBounds(630, 440, 38, 28);
+        jLabel25.setBounds(630, 440, 42, 24);
 
         jLabel26.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel26.setText("วัน");
         rent.add(jLabel26);
-        jLabel26.setBounds(810, 440, 20, 28);
+        jLabel26.setBounds(810, 440, 21, 24);
 
         day.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         day.addActionListener(new java.awt.event.ActionListener() {
@@ -990,7 +990,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         rent.add(jButton5);
-        jButton5.setBounds(540, 500, 90, 37);
+        jButton5.setBounds(540, 500, 90, 33);
 
         jButton6.setBackground(new java.awt.Color(220, 20, 60));
         jButton6.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
@@ -1016,7 +1016,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel36.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel36.setText("ชื่อลูกค้า");
         rent.add(jLabel36);
-        jLabel36.setBounds(670, 270, 61, 28);
+        jLabel36.setBounds(670, 270, 67, 24);
 
         mud.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         rent.add(mud);
@@ -1025,7 +1025,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel37.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel37.setText("จำนวนเงินมัดจำ :");
         rent.add(jLabel37);
-        jLabel37.setBounds(670, 500, 130, 28);
+        jLabel37.setBounds(670, 500, 130, 24);
 
         mileinrent.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         rent.add(mileinrent);
@@ -1034,7 +1034,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel38.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel38.setText("เลขไมล์");
         rent.add(jLabel38);
-        jLabel38.setBounds(360, 380, 54, 28);
+        jLabel38.setBounds(360, 380, 61, 24);
 
         jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/rent.png"))); // NOI18N
         rent.add(jLabel76);
@@ -1048,12 +1048,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel11.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel11.setText("เลขที่ใบเช่า");
         returncar.add(jLabel11);
-        jLabel11.setBounds(39, 176, 78, 23);
+        jLabel11.setBounds(39, 176, 86, 23);
 
         jLabel49.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel49.setText("วันที่เช่า");
         returncar.add(jLabel49);
-        jLabel49.setBounds(39, 221, 55, 23);
+        jLabel49.setBounds(39, 221, 60, 23);
 
         DateHire.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         DateHire.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1063,12 +1063,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(DateHire);
-        DateHire.setBounds(140, 220, 109, 26);
+        DateHire.setBounds(140, 220, 109, 23);
 
         jLabel50.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel50.setText("รหัสลูกค้า");
         returncar.add(jLabel50);
-        jLabel50.setBounds(310, 170, 72, 23);
+        jLabel50.setBounds(310, 170, 77, 23);
 
         IDCustomer.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         IDCustomer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1078,12 +1078,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(IDCustomer);
-        IDCustomer.setBounds(400, 170, 85, 26);
+        IDCustomer.setBounds(400, 170, 85, 23);
 
         jLabel51.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel51.setText("เลขไมล์คืน");
         returncar.add(jLabel51);
-        jLabel51.setBounds(310, 270, 76, 23);
+        jLabel51.setBounds(310, 270, 85, 23);
 
         MileReturn.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         MileReturn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1093,7 +1093,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(MileReturn);
-        MileReturn.setBounds(400, 270, 105, 26);
+        MileReturn.setBounds(400, 270, 105, 23);
 
         MileHire.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         MileHire.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1103,27 +1103,27 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(MileHire);
-        MileHire.setBounds(140, 320, 91, 26);
+        MileHire.setBounds(140, 320, 91, 23);
 
         jLabel52.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel52.setText("เลขไมล์เช่า");
         returncar.add(jLabel52);
-        jLabel52.setBounds(39, 319, 78, 23);
+        jLabel52.setBounds(39, 319, 88, 23);
 
         jLabel53.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel53.setText("กม.");
         returncar.add(jLabel53);
-        jLabel53.setBounds(520, 270, 25, 23);
+        jLabel53.setBounds(520, 270, 28, 23);
 
         jLabel54.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel54.setText("กม.");
         returncar.add(jLabel54);
-        jLabel54.setBounds(240, 320, 25, 23);
+        jLabel54.setBounds(240, 320, 28, 23);
 
         jLabel55.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel55.setText("เลขพาหนะ");
         returncar.add(jLabel55);
-        jLabel55.setBounds(39, 267, 76, 23);
+        jLabel55.setBounds(39, 267, 84, 23);
 
         IDCar.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         IDCar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1133,18 +1133,18 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(IDCar);
-        IDCar.setBounds(140, 270, 85, 26);
+        IDCar.setBounds(140, 270, 85, 23);
 
         jLabel56.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setText("วันที่คืนรถ");
         returncar.add(jLabel56);
-        jLabel56.setBounds(310, 220, 73, 24);
+        jLabel56.setBounds(310, 220, 78, 24);
 
         jLabel57.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel57.setText("รวมเป็นค่าปรับ");
         returncar.add(jLabel57);
-        jLabel57.setBounds(39, 427, 107, 23);
+        jLabel57.setBounds(39, 427, 114, 23);
 
         TotalFine.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         TotalFine.setForeground(new java.awt.Color(204, 0, 0));
@@ -1155,12 +1155,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(TotalFine);
-        TotalFine.setBounds(170, 430, 85, 26);
+        TotalFine.setBounds(170, 430, 85, 23);
 
         jLabel58.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel58.setText("คืนเกินกำหนด");
         returncar.add(jLabel58);
-        jLabel58.setBounds(310, 320, 102, 23);
+        jLabel58.setBounds(310, 320, 110, 23);
 
         jLabel59.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel59.setText("วัน");
@@ -1170,7 +1170,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel60.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel60.setText("บาท");
         returncar.add(jLabel60);
-        jLabel60.setBounds(270, 430, 30, 23);
+        jLabel60.setBounds(270, 430, 33, 23);
 
         jButton7.setBackground(new java.awt.Color(30, 144, 255));
         jButton7.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
@@ -1187,7 +1187,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel62.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel62.setText("จำนวนเงินมัดจำ");
         returncar.add(jLabel62);
-        jLabel62.setBounds(39, 371, 116, 23);
+        jLabel62.setBounds(39, 371, 124, 23);
 
         Deposit.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
         Deposit.setForeground(new java.awt.Color(204, 0, 0));
@@ -1198,12 +1198,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(Deposit);
-        Deposit.setBounds(170, 370, 85, 26);
+        Deposit.setBounds(170, 370, 85, 23);
 
         jLabel63.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel63.setText("บาท");
         returncar.add(jLabel63);
-        jLabel63.setBounds(270, 370, 30, 23);
+        jLabel63.setBounds(270, 370, 33, 23);
 
         jButton8.setBackground(new java.awt.Color(255, 127, 80));
         jButton8.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
@@ -1215,7 +1215,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(jButton8);
-        jButton8.setBounds(330, 420, 90, 37);
+        jButton8.setBounds(330, 420, 90, 33);
 
         jTable2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable2.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
@@ -1270,7 +1270,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         returncar.add(IDRent);
-        IDRent.setBounds(140, 170, 82, 28);
+        IDRent.setBounds(140, 170, 82, 25);
         returncar.add(jLabel68);
         jLabel68.setBounds(0, 0, 0, 0);
 
@@ -1286,12 +1286,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel61.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel61.setText("ID รถ");
         menurepair.add(jLabel61);
-        jLabel61.setBounds(30, 150, 50, 28);
+        jLabel61.setBounds(30, 150, 50, 24);
 
         jLabel64.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel64.setText("ประเภทการซ่อมบำรุง");
         menurepair.add(jLabel64);
-        jLabel64.setBounds(30, 190, 160, 28);
+        jLabel64.setBounds(30, 190, 160, 24);
 
         chkBox4.setBackground(new java.awt.Color(255, 204, 102));
         chkBox4.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
@@ -1340,12 +1340,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel65.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel65.setText("รายละเอียด");
         menurepair.add(jLabel65);
-        jLabel65.setBounds(30, 350, 90, 28);
+        jLabel65.setBounds(30, 350, 90, 24);
 
         jLabel66.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel66.setText("วันที่ซ่อม");
         menurepair.add(jLabel66);
-        jLabel66.setBounds(30, 480, 70, 28);
+        jLabel66.setBounds(30, 480, 70, 24);
 
         txtabout.setColumns(20);
         txtabout.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
@@ -1373,7 +1373,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
         menurepair.add(id_carrepair);
-        id_carrepair.setBounds(90, 150, 82, 28);
+        id_carrepair.setBounds(90, 150, 82, 25);
         menurepair.add(daterepair);
         daterepair.setBounds(150, 480, 190, 30);
         menurepair.add(dateprb);
@@ -1382,7 +1382,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel67.setFont(new java.awt.Font("Kanit Light", 0, 18)); // NOI18N
         jLabel67.setText("วันหมด พรบ.");
         menurepair.add(jLabel67);
-        jLabel67.setBounds(30, 530, 100, 28);
+        jLabel67.setBounds(30, 530, 100, 24);
 
         repairtable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         repairtable.setFont(new java.awt.Font("Kanit Light", 0, 14)); // NOI18N
@@ -1779,7 +1779,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         status_panel.add(Wait);
 
         top_plane.add(status_panel);
-        status_panel.setBounds(140, 356, 460, 106);
+        status_panel.setBounds(140, 356, 460, 92);
 
         jCalendar1.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
         top_plane.add(jCalendar1);
@@ -2304,7 +2304,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jLabel41.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Documents\\NetBeansProjects\\rental\\img\\75210217_1336767483168345_6444166070470180864_n.png")); // NOI18N
         jLabel41.setText("jLabel40");
 
         jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -2359,7 +2358,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Customer");
 
-        jLabel40.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Documents\\NetBeansProjects\\rental\\img\\75587523_542018146581752_2667128756140769280_n.png")); // NOI18N
         jLabel40.setText("jLabel40");
 
         javax.swing.GroupLayout sidecustomerLayout = new javax.swing.GroupLayout(sidecustomer);
@@ -2441,8 +2439,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Return");
 
-        jLabel46.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Documents\\NetBeansProjects\\rental\\img\\78542563_519691698873012_9093333019976007680_n.png")); // NOI18N
-
         javax.swing.GroupLayout sidereturnLayout = new javax.swing.GroupLayout(sidereturn);
         sidereturn.setLayout(sidereturnLayout);
         sidereturnLayout.setHorizontalGroup(
@@ -2504,7 +2500,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel39.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\test.png")); // NOI18N
         jLabel39.setText("jLabel39");
 
         sidedashboard.setBackground(new java.awt.Color(255, 51, 102));
