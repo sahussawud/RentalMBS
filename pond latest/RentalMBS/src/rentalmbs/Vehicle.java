@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rentalMBS;
+package rentalmbs;
 
 import java.util.Date;
 
@@ -12,6 +12,10 @@ import java.util.Date;
  * @author Asus
  */
 public class Vehicle {
+
+    Vehicle() {
+       
+    }
 
     @Override
     public String toString() {
