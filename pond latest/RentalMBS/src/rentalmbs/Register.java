@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rental;
+package rentalMBS;
 import javax.swing.*;
 /**
  *
  * @author Asus
  */
-public interface Register {
+public class Register {
     JTable VehicleTB = new JTable();
     
     public void regist();

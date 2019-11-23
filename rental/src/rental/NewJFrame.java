@@ -1439,7 +1439,12 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jButton12.setBackground(new java.awt.Color(220, 20, 60));
         jButton12.setFont(new java.awt.Font("Kanit Light", 1, 18)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("ยกเลิก");
+        jButton12.setText("ลบ");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         menurepair.add(jButton12);
         jButton12.setBounds(190, 700, 146, 44);
 
@@ -3498,12 +3503,14 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String checkBox3 = chkBox3.getText();
             String checkBox4 = chkBox4.getText();
             String checkBox5 = chkBox5.getText();
+            Date dateRepair = daterepair.getDate();
+            Date datePrb = dateprb.getDate();
 
-            SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
-            String date = Date_Format.format(daterepair.getDate());
+            SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+            String date = Date_Format.format(dateRepair);
 
-            SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
-            String datep = Date_Format1.format(dateprb.getDate());
+            SimpleDateFormat Date_Format1 = new SimpleDateFormat("dd-MM-yyyy");
+            String datep = Date_Format1.format(datePrb);
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
@@ -3520,7 +3527,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             pst.setString(7, about);
             pst.setString(8, date);
             pst.setString(9, datep);
-            
+
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Car Added.......");
             showData2();
@@ -4279,6 +4286,37 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private void dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dayActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel d1 = (DefaultTableModel)repairtable.getModel();
+        int selectedrow = repairtable.getSelectedRow();
+       
+        String id = d1.getValueAt(selectedrow, 0).toString();
+    
+        int dialogResult  = JOptionPane.showConfirmDialog(this, "Do you want to delete your data","Warning",JOptionPane.YES_NO_OPTION);
+        if(dialogResult == JOptionPane.YES_OPTION){
+           try {
+               Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base","123456");
+                pst=con.prepareStatement("delete from carrepair where carid=?");
+                pst.setString(1,id);
+                pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Data Delete");
+            showData2();
+                
+           } catch (ClassNotFoundException ex) {
+               Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (SQLException ex) {
+               Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
+           }
+               
+            
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
     Connection con;
 
     public void table_update4() {
