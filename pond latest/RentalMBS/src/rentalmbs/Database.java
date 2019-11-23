@@ -50,7 +50,7 @@ public class Database {
 
     }
 
-    //table in Register panal
+    //table in Register panal-------------------------------------------------------------------
     public JTable getRegisTB() throws SQLException {
 
         JTable j = new JTable();
@@ -133,7 +133,7 @@ public class Database {
 
     }
 
-    //from  showData();
+    //from  showData();----------------------------------------------------------------------------
     public JTable getCustomerTB() throws ClassNotFoundException, SQLException {
         JTable j = new JTable();
 
@@ -211,7 +211,7 @@ public class Database {
 
     }
 
-    //status dashboard in Dashboard Panal
+    //status dashboard in Dashboard Panal--------------------------------------------------------
     public JTable getDashboardTB() throws SQLException {
         JTable dashboard = new JTable();
 
@@ -238,6 +238,15 @@ public class Database {
         }
 
         return dashboard;
+    }
+
+    public void addDashboardTB() {
+    }
+
+    public void editDashboardTB() {
+    }
+
+    public void deleteDashboardTB() {
     }
 
     public JTable getCheckTB() throws SQLException {
@@ -340,8 +349,9 @@ public class Database {
         }
         return transactionTB;
     }
+    //----------------------------------------------------------------------------------
 
-    //update Table2 in repairPanel
+    //update Table2 in repairPanel--------------------------------------------------------
     public JTable getRepairTB() throws SQLException {
         JTable repairtable = new JTable();
 
@@ -416,6 +426,67 @@ public class Database {
         PreparedStatement pst = con.prepareStatement("delete from carrepair where carid=?");
         pst.setString(1, id);
         pst.executeUpdate();
+    }
+
+    //--------------------------------------Expense----------------------------
+    public JTable getExpenseTB() throws SQLException {
+
+        JTable Expensetable = new JTable();
+        PreparedStatement pst = con.prepareStatement("select * from ExpenseTB");
+        ResultSet Rs = pst.executeQuery();
+        ResultSetMetaData rd = Rs.getMetaData();
+        c = rd.getColumnCount();
+        DefaultTableModel df = (DefaultTableModel) Expensetable.getModel();
+        df.setRowCount(0);
+
+        while (Rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 1; i <= c; i++) {
+                v2.add(Rs.getString("id_expense"));
+                v2.add(Rs.getString("date_expense"));
+                v2.add(Rs.getString("type_expense"));
+                v2.add(Rs.getString("reciever_expense"));
+                v2.add(Rs.getString("amount_expense"));
+                v2.add(Rs.getString("detail_expense"));
+                v2.add(Rs.getString("least_editor"));
+
+            }
+            df.addRow(v2);
+        }
+        return Expensetable;
+    }
+
+    public void addExpenseTB(String Id,String Day,String type, String Reciver,String Amount,String Detail) throws SQLException {
+       
+        Statement stmt = con.createStatement();
+        PreparedStatement pst = con.prepareStatement("insert into ExpenseTB(id_expense,date_expense,type_expense,reciever_expense,amount_expense,detail_expense,least_editor) values(?,?,?,?,?,?,?)");
+        pst.setString(1, Id);
+        pst.setString(2, Day);
+        pst.setString(3, type);
+        pst.setString(4, Reciver);
+        pst.setString(5, Amount);
+        pst.setString(6, Detail);      
+        pst.executeUpdate();
+        
+    }
+
+    public void editExpenseTB(String id,String Day,String type, String Reciver,String Amount,String Detail) throws SQLException{
+        
+            PreparedStatement pst = con.prepareStatement("update ExpenseTB set date_expense=?,type_expense=?,reciever_expense=?,amount_expense=?,detail_expense=?,least_editor=? where id_expense=? ");
+
+            pst.setString(1, Day);
+            pst.setString(2, type);
+            pst.setString(3, Reciver);
+            pst.setString(4, Amount);
+            pst.setString(5, Detail);
+         
+            pst.setString(7, id);
+    }
+
+    public void deleteExpenseTB(String id) throws SQLException{
+         PreparedStatement pst = con.prepareStatement("delete from ExpenseTB where id_expense=?");
+         pst.setString(1, id);
+         pst.executeUpdate();
     }
 
 // id car update
