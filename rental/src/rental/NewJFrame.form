@@ -3366,9 +3366,9 @@
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
                                           <Component id="jScrollPane14" min="-2" pref="700" max="-2" attributes="0"/>
-                                          <EmptySpace pref="351" max="32767" attributes="0"/>
+                                          <EmptySpace pref="371" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>

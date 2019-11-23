@@ -1934,9 +1934,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(342, 342, 342)
+                .addGap(322, 322, 322)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3477,7 +3477,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
-    String repair;
+    String repair = "";
     private void chkBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBox4ActionPerformed
         repair += "ระบบของเหลว  \n";
 
@@ -3530,7 +3530,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             pst.setString(7, about);
             pst.setString(8, date);
             pst.setString(9, datep);
-
+            
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Car Added.......");
             showData2();
@@ -3541,6 +3541,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             chkBox5.setSelected(false);
             txtabout.setText("");
             repair = "";
+
+           
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(carrepair.class.getName()).log(Level.SEVERE, null, ex);
