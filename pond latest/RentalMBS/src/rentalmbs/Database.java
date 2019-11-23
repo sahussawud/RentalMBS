@@ -81,35 +81,58 @@ public class Database {
 
         return j;
     }
-    
-    public void addregisTB(String idrod, String band,String type,String color, String tabian,String cost,String status,String costd, Date day) throws SQLException{
-        
-                Statement stmt = con.createStatement();
-                PreparedStatement pst;
-                pst = con.prepareStatement("insert into carregis(carid,carbrand,carmodel,carcolor,cartabian,carprice,carstatus,carpriceday,date) values(?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, idrod);
-                pst.setString(2, band);
-                pst.setString(3, type);
-                pst.setString(4, color);
-                pst.setString(5, tabian);
-                pst.setString(6, cost);
-                pst.setString(7, status);
-                pst.setString(8, costd);
 
-                SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-                String date = Date_Format.format(day);
-                
-                pst.setString(9, date);
+    public void addregisTB(String idrod, String band, String type, String color, String tabian, String cost, String status, String costd, Date day) throws SQLException {
 
-                pst.executeUpdate();
-                
-      }
-    
-    public void editRegisTB(){}
-    
-    public void deleteRegisTB(){}
-    
-    
+        Statement stmt = con.createStatement();
+        PreparedStatement pst;
+        pst = con.prepareStatement("insert into carregis(carid,carbrand,carmodel,carcolor,cartabian,carprice,carstatus,carpriceday,date) values(?,?,?,?,?,?,?,?,?)");
+        pst.setString(1, idrod);
+        pst.setString(2, band);
+        pst.setString(3, type);
+        pst.setString(4, color);
+        pst.setString(5, tabian);
+        pst.setString(6, cost);
+        pst.setString(7, status);
+        pst.setString(8, costd);
+
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+        String date = Date_Format.format(day);
+
+        pst.setString(9, date);
+
+        pst.executeUpdate();
+
+    }
+
+    public void editRegisTB(String id, String band, String type, String color, String tabian, String cost, String status, String costd, Date day) throws SQLException {
+
+        PreparedStatement pst = con.prepareStatement("update carregis set carbrand=?,carmodel=?,carcolor=?,cartabian=?,carprice=?,carstatus=?,carpriceday=? where carid=? ");
+        pst.setString(1, band);
+        pst.setString(2, type);
+        pst.setString(3, color);
+        pst.setString(4, tabian);
+        pst.setString(5, cost);
+        pst.setString(6, status);
+        pst.setString(7, costd);
+        pst.setString(8, id);
+        pst.executeUpdate();
+
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+        String date = Date_Format.format(day);
+
+        pst.setString(9, date);
+
+    }
+
+    public void deleteRegisTB(String id) throws SQLException {
+
+        PreparedStatement pst = con.prepareStatement("delete from carregis where carid=?");
+        pst.setString(1, id);
+        pst.executeUpdate();
+
+    }
+
     //from  showData();
     public JTable getCustomerTB() throws ClassNotFoundException, SQLException {
         JTable j = new JTable();
@@ -141,6 +164,7 @@ public class Database {
         return j;
 
     }
+
     public void addCustomerTB(JTable Table_cs, String id, String name, String lname, String cid, String nation, String tels, String mail, String sex) throws SQLException, ClassNotFoundException {
 
         String sql = "insert into Customer value('" + id + "','" + name + "','" + lname + "','" + cid + "','" + nation + "','" + tels + "','" + mail + "','" + sex + "')";
@@ -186,8 +210,6 @@ public class Database {
         pst.executeUpdate();
 
     }
-    
-    
 
     //status dashboard in Dashboard Panal
     public JTable getDashboardTB() throws SQLException {
@@ -320,7 +342,7 @@ public class Database {
     }
 
     //update Table2 in repairPanel
-   public JTable getRepairTB() throws SQLException {
+    public JTable getRepairTB() throws SQLException {
         JTable repairtable = new JTable();
 
         PreparedStatement pst;
@@ -349,54 +371,53 @@ public class Database {
         return repairtable;
 
     }
-   public void addRepairTB(String id_mb,String brand, String model, String color, String plate, String repair,String about, Date dateRe, Date datePRB) throws SQLException{
-            SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-            String date = Date_Format.format(dateRe);
-            String datep = Date_Format.format(datePRB);
- 
-            System.out.println("Database Connection succesful");
-            Statement stmt = con.createStatement();
-            PreparedStatement pst;
-            pst = con.prepareStatement("insert into carrepair(carid,carbrand,carmodel,carcolor,cartabian,type,about,daterepair,dateprb) values(?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, id_mb);
-            pst.setString(2, brand);
-            pst.setString(3, model);
-            pst.setString(4, color);
-            pst.setString(5, plate);
-            pst.setString(6, repair);
-            pst.setString(7, about);
-            pst.setString(8, date);
-            pst.setString(9, datep);
-            
-            pst.executeUpdate();
-   } 
-   public void editRepairTB(String brand, String model, String color, String plate, String repair,String about, Date dateRe, Date datePRB,String id_mb) throws SQLException{
-                SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-                String date = Date_Format.format(dateRe);
-                String datep = Date_Format.format(datePRB);
 
-               
-                PreparedStatement pst = con.prepareStatement("update carrepair SET carbrand=?,carmodel=?,carcolor=?,cartabian=?,type=?,about=?,daterepair=?,dateprb=? WHERE carid=?");
-                pst.setString(1, brand);
-                pst.setString(2, model);
-                pst.setString(3, color);
-                pst.setString(4, plate);
-                pst.setString(5, repair);
-                pst.setString(6, about);
-                pst.setString(7, date);
-                pst.setString(8, datep);
-                pst.setString(9, id_mb);
-                pst.executeUpdate();
-   } 
-   public void deleteRepairTB(String id) throws SQLException{
-         PreparedStatement pst=con.prepareStatement("delete from carrepair where carid=?");
-         pst.setString(1,id);
-         pst.executeUpdate();
-   } 
-   
-   
-    
-        
+    public void addRepairTB(String id_mb, String brand, String model, String color, String plate, String repair, String about, Date dateRe, Date datePRB) throws SQLException {
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+        String date = Date_Format.format(dateRe);
+        String datep = Date_Format.format(datePRB);
+
+        System.out.println("Database Connection succesful");
+        Statement stmt = con.createStatement();
+        PreparedStatement pst;
+        pst = con.prepareStatement("insert into carrepair(carid,carbrand,carmodel,carcolor,cartabian,type,about,daterepair,dateprb) values(?,?,?,?,?,?,?,?,?)");
+        pst.setString(1, id_mb);
+        pst.setString(2, brand);
+        pst.setString(3, model);
+        pst.setString(4, color);
+        pst.setString(5, plate);
+        pst.setString(6, repair);
+        pst.setString(7, about);
+        pst.setString(8, date);
+        pst.setString(9, datep);
+
+        pst.executeUpdate();
+    }
+
+    public void editRepairTB(String brand, String model, String color, String plate, String repair, String about, Date dateRe, Date datePRB, String id_mb) throws SQLException {
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+        String date = Date_Format.format(dateRe);
+        String datep = Date_Format.format(datePRB);
+
+        PreparedStatement pst = con.prepareStatement("update carrepair SET carbrand=?,carmodel=?,carcolor=?,cartabian=?,type=?,about=?,daterepair=?,dateprb=? WHERE carid=?");
+        pst.setString(1, brand);
+        pst.setString(2, model);
+        pst.setString(3, color);
+        pst.setString(4, plate);
+        pst.setString(5, repair);
+        pst.setString(6, about);
+        pst.setString(7, date);
+        pst.setString(8, datep);
+        pst.setString(9, id_mb);
+        pst.executeUpdate();
+    }
+
+    public void deleteRepairTB(String id) throws SQLException {
+        PreparedStatement pst = con.prepareStatement("delete from carrepair where carid=?");
+        pst.setString(1, id);
+        pst.executeUpdate();
+    }
+
 // id car update
     public JComboBox<String> loadcar() throws ClassNotFoundException, SQLException {
 
