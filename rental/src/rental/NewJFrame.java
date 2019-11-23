@@ -2649,6 +2649,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     public void showData() {
         int c;
         try {
@@ -2815,15 +2816,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_Delete_csActionPerformed
 
     public void showData2() {
-//        String sql_read = "select * from carrepair";
-//        try {
-//            Connection con = connectDB();
-//            PreparedStatement pst=con.prepareStatement(sql_read);
-//            ResultSet rs=pst.executeQuery();
-//            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
         int c;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -2895,7 +2888,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_Tel2ActionPerformed
 
     private void Edit_csActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_csActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        //ให้เลือก editCustomer มาใช้
         DefaultTableModel d1 = (DefaultTableModel) Table_cs.getModel();
         int selectedrow = Table_cs.getSelectedRow();
 
@@ -2934,6 +2928,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //เปิดตัวนี้ด้วยนะ JOptionPane.showMessageDialog(this, "Data Updated");
     }//GEN-LAST:event_Edit_csActionPerformed
 
     private void textName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textName2ActionPerformed
@@ -3029,7 +3024,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             DefaultTableModel d1 = (DefaultTableModel) jTable1.getModel();
             int selectedrow = jTable1.getSelectedRow();
 
-            String id = d1.getValueAt(selectedrow, 0).toString();
+            String id = d1.getValueAt(selectedrow, 0).toString();//โยนไป deleteCustomerTB
             int yesno = JOptionPane.showConfirmDialog(this, "คุณต้องการจะลบข้อมูลนี้?", "Warning", JOptionPane.YES_NO_OPTION);
             if (yesno == JOptionPane.YES_OPTION) {
                 try {
