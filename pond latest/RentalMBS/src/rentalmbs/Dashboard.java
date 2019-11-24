@@ -17,6 +17,8 @@ import rentalmbs.Database;
  */
 public class Dashboard {
     JTable DashboardTB;
+    JTable CheckTB;
+    JTable TransTB;
     int Available, Busy,Check,Transaaction;
     String MouthSelect,YearSelect;
     double WholeSale,Revenue,expense;
