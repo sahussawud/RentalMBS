@@ -23,7 +23,8 @@ public class Customer{
     
     public Customer() throws ClassNotFoundException, SQLException {
             this.CustomerTB  = d.getCustomerTB();
-            customer = new CustomerInfo(String customerID, String name, String surname, String idnumber, String sex, String nation, String phone, String email);
+            customer = new CustomerInfo().getCustomerfromID(id);
+          
             
        
     }

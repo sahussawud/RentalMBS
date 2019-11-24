@@ -13,13 +13,13 @@ import javax.swing.JTable;
  * @author Asus
  */
 public class CustomerInfo {
-    JTable t;
+    JTable customerTB;
 
     public CustomerInfo() throws ClassNotFoundException, SQLException {
         
-        t = new JTable();
+        customerTB = new JTable();
         Database d = new Database();
-        t = d.getCustomerTB();       
+        customerTB = d.getCustomerTB();       
             
         this.customerID = customerID;
         this.name = name;
@@ -33,16 +33,16 @@ public class CustomerInfo {
 
     
     public void getCustomerfromID(String id){
-        int row = t.getRowCount();
+        int row = customerTB.getRowCount();
          for (int i = 0; i < row; i++) {
-            this.customerID = GetData(t, i, 0).toString();
-            this.name = GetData(t, i, 1).toString();
-            this.surname = GetData(t, i, 2).toString();
-            this.idnumber = GetData(t, i, 3).toString();
-            this.sex = GetData(t, i, 4).toString();
-            this.nation = GetData(t, i, 5).toString();
-            this.phone = GetData(t, i, 6).toString();
-            this.email = GetData(t, i, 7).toString();
+            this.customerID = GetData(customerTB, i, 0).toString();
+            this.name = GetData(customerTB, i, 1).toString();
+            this.surname = GetData(customerTB, i, 2).toString();
+            this.idnumber = GetData(customerTB, i, 3).toString();
+            this.sex = GetData(customerTB, i, 4).toString();
+            this.nation = GetData(customerTB, i, 5).toString();
+            this.phone = GetData(customerTB, i, 6).toString();
+            this.email = GetData(customerTB, i, 7).toString();
         }
     }
      public Object GetData(JTable table, int row_index, int col_index) {
