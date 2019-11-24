@@ -27,28 +27,26 @@ public class Expense {
     JTable ExpenseTB;
     
     String ExpenseID,ExpType,payee,detail;
-    Date ExpenseDate;
+    String ExpenseDate;
     double cost;
-
-    public Expense(JTable ExpenseTB, String ExpenseID, String ExpType, String payee, String detail, Date ExpenseDate, double cost) {
+    Database d;
+    
+    public Expense(JTable ExpenseTB, String ExpenseID, String ExpType, String payee, String detail, Date ExpenseDate, double cost) throws ClassNotFoundException, SQLException {
         this.ExpenseTB = ExpenseTB;
         this.ExpenseID = ExpenseID;
         this.ExpType = ExpType;
         this.payee = payee;
         this.detail = detail;
-        this.ExpenseDate = ExpenseDate;
+        
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        String Day = Date_Format.format(ExpenseDate);
+        this.ExpenseDate = Day;
         this.cost = cost;
-    }
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Expense rr = new Expense();
-        rr.setExpenseTB(new Database().getExpenseTB());
-        System.out.println(rr.ExpenseTB.getRowCount());
+        this.d = new Database();
         
     }
 
-    Expense() {
-         //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public String toString() {
@@ -87,10 +85,10 @@ public class Expense {
     public void setDetail(String detail) {
         this.detail = detail;
     }
-    public Date getExpenseDate() {
+    public String getExpenseDate() {
         return ExpenseDate;
     }
-     public void setExpenseDate(Date ExpenseDate) {
+     public void setExpenseDate(String ExpenseDate) {
         this.ExpenseDate = ExpenseDate;
     }
     public double getCost() {
@@ -102,55 +100,35 @@ public class Expense {
 
    
  
-    public void addExpense(){
-     if (IDexpense.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "กรุณากรอกข้อมูลให้ครบทุกช่อง");
-        } else {// TODO  add your handling code here:
-            String Id = IDexpense.getText();
-
-            SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-            String Day = Date_Format.format(dateeeee.getDate());
-
-            String type = Type.getSelectedItem().toString();
-            String Reciver = reciever.getText();
-            String Amount = amount_exp.getText();
-            String Detail = detail.getText();
-
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-                Statement stmt = con.createStatement();
-                PreparedStatement pst;
-                pst = con.prepareStatement("insert into ExpenseTB(id_expense,date_expense,type_expense,reciever_expense,amount_expense,detail_expense,least_editor) values(?,?,?,?,?,?,?)");
-                pst.setString(1, Id);
-                pst.setString(2, Day);
-                pst.setString(3, type);
-                pst.setString(4, Reciver);
-                pst.setString(5, Amount);
-                pst.setString(6, Detail);
-                pst.setString(7, this.user);
-
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Car Added.......");
-
-                IDexpense.setText("");
-                //jDateChooser1.setDate(null);
-                Type.setSelectedIndex(-1);
-                reciever.setText("");
-                amount_exp.setText("");
-                detail.setText("");
-                table_update3();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(carregis.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(carregis.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    public JTable updateExpense() throws SQLException{
+            return d.getExpenseTB();
+    }
+    public JTable addExpense() throws ClassNotFoundException, SQLException{
+                        
+            d.addExpenseTB(ExpenseID, ExpenseDate , ExpType, payee, cost+"", detail);
+            return updateExpense();
+    
         }
+    public JTable editExpense() throws ClassNotFoundException, SQLException{
+           
+              
+           d.editExpenseTB(ExpenseID, ExpenseDate , ExpType, payee, cost+"", detail);
+           return updateExpense();
+           
+    
+    }
+    public JTable deleteExpense(String expenseID) throws ClassNotFoundException, SQLException{
+           
+            d.deleteExpenseTB(expenseID);
+            return updateExpense();
+               
     }
     
+    
+}
 
-
-
+    
+   
     
 
     
@@ -162,4 +140,4 @@ public class Expense {
   
  
  
-}
+

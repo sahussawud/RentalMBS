@@ -5,13 +5,22 @@
  */
 package rentalmbs;
 
+import java.sql.SQLException;
+import javax.swing.JTable;
+
 /**
  *
  * @author Asus
  */
 public class CustomerInfo {
+    JTable t;
 
-    public CustomerInfo(String customerID, String name, String surname, String idnumber, String sex, String nation, String phone, String email) {
+    public CustomerInfo() throws ClassNotFoundException, SQLException {
+        
+        t = new JTable();
+        Database d = new Database();
+        t = d.getCustomerTB();       
+            
         this.customerID = customerID;
         this.name = name;
         this.surname = surname;
@@ -22,8 +31,22 @@ public class CustomerInfo {
         this.email = email;
     }
 
-    CustomerInfo() {
-         //To change body of generated methods, choose Tools | Templates.
+    
+    public void getCustomerfromID(String id){
+        int row = t.getRowCount();
+         for (int i = 0; i < row; i++) {
+            this.customerID = GetData(t, i, 0).toString();
+            this.name = GetData(t, i, 1).toString();
+            this.surname = GetData(t, i, 2).toString();
+            this.idnumber = GetData(t, i, 3).toString();
+            this.sex = GetData(t, i, 4).toString();
+            this.nation = GetData(t, i, 5).toString();
+            this.phone = GetData(t, i, 6).toString();
+            this.email = GetData(t, i, 7).toString();
+        }
+    }
+     public Object GetData(JTable table, int row_index, int col_index) {
+        return table.getModel().getValueAt(row_index, col_index);
     }
 
     @Override
