@@ -24,16 +24,15 @@ public class Customer{
     public Customer() throws ClassNotFoundException, SQLException {
             this.CustomerTB  = d.getCustomerTB();
             customer = new CustomerInfo().getCustomerfromID(id);
-          
-            
+                   
        
     }
            
-    
   
    
     
     public void registCS() throws SQLException, ClassNotFoundException{
+        CustomerInfo c = new CustomerInfo(String customerID,String name,String surname,String idnumber,String sex,String nation,String phone,String email);
         d.addCustomerTB(CustomerTB,customer.customerID,customer.name, customer.surname, customer.idnumber, customer.nation, customer.phone, customer.email, customer.sex);
     
     };
