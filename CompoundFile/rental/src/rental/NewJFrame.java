@@ -44,33 +44,30 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
     private String user = "warrawat";
     private String page = "";
-    Dashboard dash;
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() throws ClassNotFoundException, SQLException,ParseException {
+    public NewJFrame() {
         initComponents();
-        dash = new Dashboard();
         table_update();
         table_update2();
         table_update3();
 
-       
+        table_update4();
         lineCreate();
         showData();
         loadcar();
         loadcar2();
         loadcar3();
         showData2();
-
+        
         this.setLocationRelativeTo(null);
         pnChart.setLayout(new java.awt.BorderLayout());
 
         try {
-            table_update4();
             notifi();
-        } catch (Exception ex) {
+        } catch (ParseException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -82,9 +79,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     PreparedStatement pst1;
     PreparedStatement pst2;
     PreparedStatement pst;
+    
     int index = 1;
-    Date date22, due22;
-
+    Date date22,due22;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2663,6 +2660,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     public void showData() {
         int c;
         try {
@@ -3148,9 +3146,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Expense.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Expense.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -3228,7 +3226,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         menurepair.setVisible(false);
         Expensepanel.setVisible(false);
         rent.setVisible(true);
-        Summary.setVisible(false);
+         Summary.setVisible(false);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_siderentMouseClicked
@@ -3317,8 +3315,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             late.setText("");
 
             table_update2();
-            
             NewJFrame main = new NewJFrame();
+
             main.setVisible(true);
             this.dispose();
 
@@ -3327,8 +3325,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NullPointerException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -3346,9 +3342,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void DepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositActionPerformed
@@ -3419,7 +3415,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         menurepair.setVisible(false);
         Expensepanel.setVisible(false);
         returncar.setVisible(true);
-        Summary.setVisible(false);
+         Summary.setVisible(false);
 
 
     }//GEN-LAST:event_sidereturnMouseClicked
@@ -3433,7 +3429,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         returncar.setVisible(false);
         menurepair.setVisible(true);
         Expensepanel.setVisible(false);
-        Summary.setVisible(false);
+         Summary.setVisible(false);
     }//GEN-LAST:event_siderepairMouseClicked
     public void loadcar3() {
         try {
@@ -3553,6 +3549,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             chkBox5.setSelected(false);
             txtabout.setText("");
             repair = "";
+
+           
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -3969,7 +3967,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private void sidedashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sidedashboardMouseClicked
         page = "dashboard";
         carregis.setVisible(false);
-
+        
         customer.setVisible(false);
         rent.setVisible(false);
 
@@ -4077,7 +4075,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         try {
             // TODO add your handling code here:
-
+            
             String car_id = idcar.getSelectedItem().toString();
             String cus_id = cusid.getText();
             String rent_id = idrent.getText();
@@ -4090,7 +4088,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
             SimpleDateFormat Date_Format2 = new SimpleDateFormat("dd-MM-yyyy");
             String due2 = Date_Format2.format(duedate.getDate());
-
+           
             System.out.println(due2);
             System.out.println(date2);
             Class.forName("com.mysql.jdbc.Driver");
@@ -4132,8 +4130,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -4141,30 +4137,36 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         try {
             String car_id = idcar.getSelectedItem().toString();
             String cus_id = cusname.getText();
-
+            
             int monthcost = 0;
             int daycost = 0;
+            
+            
+                Date date22 = date.getDate();
+                Date due22 = duedate.getDate();
 
-            Date date22 = date.getDate();
-            Date due22 = duedate.getDate();
-
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-            String timeString = formatter.format(date22);
-
-            int m = Integer.parseInt(timeString.substring(3, 5));
-            String timeString2 = formatter.format(due22);
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-            Date firstDate = sdf.parse(timeString);
-            Date secondDate = sdf.parse(timeString2);
-
-            //l_month[m-1];
-            double day_diff = (secondDate.getTime() - firstDate.getTime()) / (1000 * 60 * 60 * 24) + 1;
-            int year3 = (int) Math.floor(day_diff / 365);
-            int month2 = (int) (day_diff % 365) / l_month[m - 1];
-            int day2 = (int) ((day_diff % 365) % l_month[m - 1]);
-            System.out.println("day different**" + day2 + "**month diff***" + month2 + "*ปี***" + year3 + "****จำนวนวันของเดือนเช่า =" + m + "****เริ่มเช่า = " + timeString + " ถึง " + timeString2);
-
+            
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                String timeString = formatter.format(date22);
+                
+                int m = Integer.parseInt(timeString.substring(3, 5));
+                String timeString2 = formatter.format(due22);
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                Date firstDate = sdf.parse(timeString);
+                Date secondDate = sdf.parse(timeString2);
+                
+              //l_month[m-1];
+               double day_diff = (secondDate.getTime() - firstDate.getTime())/(1000*60*60*24)+1;
+               int year3 = (int)Math.floor(day_diff/365);
+               int month2 = (int)(day_diff%365)/l_month[m-1];
+               int day2 = (int)((day_diff%365)%l_month[m-1]);
+            System.out.println("day different**"+day2+"**month diff***"+month2+"*ปี***"+year3+"****จำนวนวันของเดือนเช่า ="+m+"****เริ่มเช่า = "+timeString+" ถึง "+timeString2);
+            
+           
+             
+            
+           
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
             PreparedStatement pst4 = con.prepareStatement("select * from carregis where carid = ?");
@@ -4181,8 +4183,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 }
 
             }
-            month.setText("" + month2);
-            day.setText("" + day2);
+            month.setText(""+month2);
+            day.setText(""+day2);
             System.out.println(monthcost);
             System.out.println(daycost);
             System.out.println("1515");
@@ -4196,7 +4198,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 fee.setText("" + (monthcost * month2));
 
             }
-
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -4233,9 +4235,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 }
 
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -4287,9 +4289,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_idcarActionPerformed
 
@@ -4299,182 +4301,176 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel d1 = (DefaultTableModel) repairtable.getModel();
+        DefaultTableModel d1 = (DefaultTableModel)repairtable.getModel();
         int selectedrow = repairtable.getSelectedRow();
-
+       
         String id = d1.getValueAt(selectedrow, 0).toString();
-
-        int dialogResult = JOptionPane.showConfirmDialog(this, "Do you want to delete your data", "Warning", JOptionPane.YES_NO_OPTION);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
-                pst = con.prepareStatement("delete from carrepair where carid=?");
-                pst.setString(1, id);
+    
+        int dialogResult  = JOptionPane.showConfirmDialog(this, "Do you want to delete your data","Warning",JOptionPane.YES_NO_OPTION);
+        if(dialogResult == JOptionPane.YES_OPTION){
+           try {
+               Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base","123456");
+                pst=con.prepareStatement("delete from carrepair where carid=?");
+                pst.setString(1,id);
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Data Delete");
-                showData2();
-
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } else {
-
+            JOptionPane.showMessageDialog(this, "Data Delete");
+            showData2();
+                
+           } catch (ClassNotFoundException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (SQLException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
+               
+            
+        }
+        else{
+            
         }
     }//GEN-LAST:event_jButton12ActionPerformed
     Connection con;
 
-    public void table_update4() throws ParseException {
+    public void table_update4() {
+        int c;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
 
-        //        int c;
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-//
-//            pst = con.prepareStatement("select * from carregis");
-//            ResultSet Rs = pst.executeQuery();
-//            ResultSetMetaData rd = Rs.getMetaData();
-//            c = rd.getColumnCount();
-//            DefaultTableModel df = (DefaultTableModel) dashboard.getModel();
-//            df.setRowCount(0);
-//
-//            while (Rs.next()) {
-//                Vector v2 = new Vector();
-//                for (int i = 1; i <= c; i++) {
-//                    v2.add(Rs.getString("carid"));
-//                    v2.add(Rs.getString("carbrand"));
-//                    v2.add(Rs.getString("carmodel"));
-//                    v2.add(Rs.getString("carcolor"));
-//                    v2.add(Rs.getString("cartabian"));
-//                    v2.add(Rs.getString("carstatus"));
-//                    v2.add(Rs.getString("date"));
-//
-//                }
-//                df.addRow(v2);
-//            }
-//
-//            pst = con.prepareStatement("select * from carrepair");
-//            Rs = pst.executeQuery();
-//            rd = Rs.getMetaData();
-//            c = rd.getColumnCount();
-//            df = (DefaultTableModel) dashboard3.getModel();
-//            df.setRowCount(0);
-//
-//            while (Rs.next()) {
-//                Vector v2 = new Vector();
-//                for (int i = 1; i <= c; i++) {
-//                    v2.add(Rs.getString("carid"));
-//                    v2.add(Rs.getString("carbrand") + " " + Rs.getString("carmodel") + " " + Rs.getString("carcolor"));
-//                    v2.add(Rs.getString("cartabian"));
-//                    v2.add(Rs.getString("type"));
-//                    v2.add(Rs.getString("about"));
-//                    v2.add(Rs.getString("daterepair"));
-//                    v2.add(Rs.getString("dateprb"));
-//                }
-//                df.addRow(v2);
-//            }
-//
-//            pst = con.prepareStatement("select * from ExpenseTB");
-//            Rs = pst.executeQuery();
-//            rd = Rs.getMetaData();
-//            c = rd.getColumnCount();
-//            df = (DefaultTableModel) dashboard2.getModel();
-//            df.setRowCount(0);
-//
-//            int count = 0;
-//            while (Rs.next()) {
-//                Vector v2 = new Vector();
-//                for (int i = 1; i <= c; i++) {
-//                    v2.add(Rs.getString("date_expense"));
-//                    v2.add(Rs.getString("type_expense"));
-//                    v2.add("รายจ่าย");
-//                    v2.add(Rs.getString("amount_expense"));
-//                    v2.add("-");
-//
-//                }
-//                df.addRow(v2);
-//                count++;
-//            }
-//
-//            pst = con.prepareStatement("select * from Rental");
-//            Rs = pst.executeQuery();
-//            rd = Rs.getMetaData();
-//            c = rd.getColumnCount();
-//            df = (DefaultTableModel) dashboard2.getModel();
-//            df.setRowCount(count);
-//
-//            while (Rs.next()) {
-//                Vector v2 = new Vector();
-//                for (int i = 1; i <= c; i++) {
-//                    v2.add(Rs.getString("due"));
-//                    v2.add("ให้เช่า " + Rs.getString("car_id"));
-//                    v2.add("รายรับ");
-//                    v2.add(Rs.getString("fee"));
-//                    v2.add(Rs.getString("date"));
-//
-//                }
-//                df.addRow(v2);
-//                count++;
-//            }
-//
-//            pst = con.prepareStatement("select * from ReturnCar");
-//            Rs = pst.executeQuery();
-//            rd = Rs.getMetaData();
-//            c = rd.getColumnCount();
-//            df = (DefaultTableModel) dashboard2.getModel();
-//            df.setRowCount(count);
-//
-//            while (Rs.next()) {
-//                Vector v2 = new Vector();
-//                for (int i = 1; i <= c; i++) {
-//                    v2.add(Rs.getString("Return_Date"));
-//                    v2.add("ค่าปรับจากรถ " + Rs.getString("ID_Car"));
-//                    v2.add("รายรับ");
-//                    v2.add(Rs.getString("Total"));
-//                    v2.add("-");
-//
-//                }
-//                df.addRow(v2);
-//                count++;
-//            }
-//
-//            int r = dashboard.getRowCount(), avai = 0, no_avai = 0;
-//
-//            int row_check = dashboard3.getRowCount();
-//
-//            for (int i = 0; i < r; i++) {
-//                Object obj1 = GetData(dashboard, i, 5);
-//                if (obj1.equals("ว่าง")) {
-//                    avai++;
-//                } else if (obj1.equals("ไม่ว่าง")) {
-//                    no_avai++;
-//                }
-//
-//            }
-//
-//            jLabel_a.setText(avai + "");
-//            jLabel_b.setText(no_avai + "");
-//            jLabel_c.setText(row_check + "");
-//
-//            dashboard.setAutoCreateRowSorter(true);
-//            dashboard2.setAutoCreateRowSorter(true);
-//            dashboard3.setAutoCreateRowSorter(true);
-//
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    dashboard = dash.getDashboardTB();
-    dashboard2 = dash.getTransTB();
-    dashboard3 = dash.getCheckTB();
-    jLabel_a = dash.getAvailable();
-    jLabel_b = dash.getBusy();
-    jLabel_c = dash.getCheck();
+            pst = con.prepareStatement("select * from carregis");
+            ResultSet Rs = pst.executeQuery();
+            ResultSetMetaData rd = Rs.getMetaData();
+            c = rd.getColumnCount();
+            DefaultTableModel df = (DefaultTableModel) dashboard.getModel();
+            df.setRowCount(0);
 
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 1; i <= c; i++) {
+                    v2.add(Rs.getString("carid"));
+                    v2.add(Rs.getString("carbrand"));
+                    v2.add(Rs.getString("carmodel"));
+                    v2.add(Rs.getString("carcolor"));
+                    v2.add(Rs.getString("cartabian"));
+                    v2.add(Rs.getString("carstatus"));
+                    v2.add(Rs.getString("date"));
+
+                }
+                df.addRow(v2);
+            }
+
+            pst = con.prepareStatement("select * from carrepair");
+            Rs = pst.executeQuery();
+            rd = Rs.getMetaData();
+            c = rd.getColumnCount();
+            df = (DefaultTableModel) dashboard3.getModel();
+            df.setRowCount(0);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 1; i <= c; i++) {
+                    v2.add(Rs.getString("carid"));
+                    v2.add(Rs.getString("carbrand") + " " + Rs.getString("carmodel") + " " + Rs.getString("carcolor"));
+                    v2.add(Rs.getString("cartabian"));
+                    v2.add(Rs.getString("type"));
+                    v2.add(Rs.getString("about"));
+                    v2.add(Rs.getString("daterepair"));
+                    v2.add(Rs.getString("dateprb"));
+                }
+                df.addRow(v2);
+            }
+
+            pst = con.prepareStatement("select * from ExpenseTB");
+            Rs = pst.executeQuery();
+            rd = Rs.getMetaData();
+            c = rd.getColumnCount();
+            df = (DefaultTableModel) dashboard2.getModel();
+            df.setRowCount(0);
+
+            int count = 0;
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 1; i <= c; i++) {
+                    v2.add(Rs.getString("date_expense"));
+                    v2.add(Rs.getString("type_expense"));
+                    v2.add("รายจ่าย");
+                    v2.add(Rs.getString("amount_expense"));
+                    v2.add("-");
+
+                }
+                df.addRow(v2);
+                count++;
+            }
+
+            pst = con.prepareStatement("select * from Rental");
+            Rs = pst.executeQuery();
+            rd = Rs.getMetaData();
+            c = rd.getColumnCount();
+            df = (DefaultTableModel) dashboard2.getModel();
+            df.setRowCount(count);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 1; i <= c; i++) {
+                    v2.add(Rs.getString("due"));
+                    v2.add("ให้เช่า " + Rs.getString("car_id"));
+                    v2.add("รายรับ");
+                    v2.add(Rs.getString("fee"));
+                    v2.add(Rs.getString("date"));
+
+                }
+                df.addRow(v2);
+                count++;
+            }
+
+            pst = con.prepareStatement("select * from ReturnCar");
+            Rs = pst.executeQuery();
+            rd = Rs.getMetaData();
+            c = rd.getColumnCount();
+            df = (DefaultTableModel) dashboard2.getModel();
+            df.setRowCount(count);
+
+            while (Rs.next()) {
+                Vector v2 = new Vector();
+                for (int i = 1; i <= c; i++) {
+                    v2.add(Rs.getString("Return_Date"));
+                    v2.add("ค่าปรับจากรถ " + Rs.getString("ID_Car"));
+                    v2.add("รายรับ");
+                    v2.add(Rs.getString("Total"));
+                    v2.add("-");
+
+                }
+                df.addRow(v2);
+                count++;
+            }
+
+            int r = dashboard.getRowCount(), avai = 0, no_avai = 0;
+
+            int row_check = dashboard3.getRowCount();
+
+            for (int i = 0; i < r; i++) {
+                Object obj1 = GetData(dashboard, i, 5);
+                if (obj1.equals("ว่าง")) {
+                    avai++;
+                } else if (obj1.equals("ไม่ว่าง")) {
+                    no_avai++;
+                }
+
+            }
+
+            jLabel_a.setText(avai + "");
+            jLabel_b.setText(no_avai + "");
+            jLabel_c.setText(row_check + "");
+
+            dashboard.setAutoCreateRowSorter(true);
+            dashboard2.setAutoCreateRowSorter(true);
+            dashboard3.setAutoCreateRowSorter(true);
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Expense.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Expense.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public Object GetData(JTable table, int row_index, int col_index) {
@@ -4487,13 +4483,13 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         //jPanel17.add(dt.DigitalWatch());
         //new Dashboard().setVisible(true);
         while (true) {
-            if (page.equals("dashboard")) {
+            if(page.equals("dashboard")){
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MMMM-yyyy HH:mm:ss");
                 Date date = new Date();
                 String timeString = formatter.format(date);
                 jLabel94.setText(timeString);
 
-            } else {
+            }else{
                 jLabel94.setText("");
             }
 
@@ -4819,7 +4815,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws ClassNotFoundException, SQLException {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -4837,12 +4833,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     break;
                 }
             }
-            
-             /* Create and display the form */
-            NewJFrame nj = new NewJFrame();
-            nj.setVisible(true);
-            Thread t = new Thread(nj);
-            t.start();
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -4851,12 +4841,14 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-       
+        /* Create and display the form */
+        NewJFrame nj = new NewJFrame();
+        nj.setVisible(true);
+        Thread t = new Thread(nj);
+        t.start();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

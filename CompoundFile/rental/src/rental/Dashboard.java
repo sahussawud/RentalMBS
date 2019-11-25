@@ -36,7 +36,7 @@ import rental.Database;
  *
  * @author 04
  */
-public class Dashboard {
+public class Dashboard extends JPanel {
     
     //attribute for summary
     private JTable DashboardTB;
@@ -56,22 +56,28 @@ public class Dashboard {
     private JComboBox<String> select_month,select_year;
     private JPanel pnChart;
     int[] l_month = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    Database d;
+    Database d = new Database();;
     
-    
-    
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, ParseException {
+        Dashboard dash = new Dashboard();
+        System.out.println(dash.DashboardTB.getRowCount());
+        System.out.println(dash.Available.toString());
+    }
 
     public Dashboard() throws ClassNotFoundException, SQLException, ParseException {
+        
         d = new Database();
         
-        this.DashboardTB = d.getDashboardTB();
-        this.CheckTB = d.getTransTB();
-        this.TransTB = d.getCheckTB();
+        setDashboardTB(d.getDashboardTB());
+        setTransTB( d.getTransTB());
+        setCheckTB(d.getCheckTB());
         
-        updateStatus();
         
-        notification();
         
+        
+        
+        this.notification();
+        this.updateStatus();
         
 //        this.notification = notification;
 //        this.whole_sale = whole_sale;
@@ -232,9 +238,8 @@ public class Dashboard {
     public void updateStatus(){
         
         int r = DashboardTB.getRowCount(), avai = 0, no_avai = 0;
-
         int row_checkTB = CheckTB.getRowCount();
-
+            System.out.println("updateStatus() is access");
             for (int i = 0; i < r; i++) {
                 Object obj1 = GetData(DashboardTB, i, 5);
                 if (obj1.equals("ว่าง")) {
@@ -256,11 +261,13 @@ public class Dashboard {
      */
     public void notification() throws ParseException {
         DefaultListModel mod = new DefaultListModel();
-        notification.setModel(mod);
+        System.out.println("access notification()");
+        
+        this.notification.setModel(mod);
 
         Object[][] data = notification_dataset();
 
-        int row = DashboardTB.getRowCount();
+        int row = this.DashboardTB.getRowCount();
 
         for (int i = 0; i < row; i++) {
             if (data[i][4].toString().equals("-")) {
@@ -293,19 +300,18 @@ public class Dashboard {
 
     }
     
-     public Object[][] notification_dataset() {
-        int row = DashboardTB.getRowCount();
-        System.out.println("Query from jTable1");
-
+    public Object[][] notification_dataset() {
+        int row = this.DashboardTB.getRowCount();
+        System.out.println("access notification dataset");
         //[date][cost][revenue/expense][detail]
         Object[][] data = new Object[row][5];
 
         for (int i = 0; i < row; i++) {
-            data[i][0] = GetData(TransTB, i, 0).toString();
-            data[i][1] = GetData(TransTB, i, 1).toString();
-            data[i][2] = GetData(TransTB, i, 2).toString();
-            data[i][3] = GetData(TransTB, i, 3).toString();
-            data[i][4] = GetData(TransTB, i, 4).toString();
+            data[i][0] = GetData(this.TransTB, i, 0).toString();
+            data[i][1] = GetData(this.TransTB, i, 1).toString();
+            data[i][2] = GetData(this.TransTB, i, 2).toString();
+            data[i][3] = GetData(this.TransTB, i, 3).toString();
+            data[i][4] = GetData(this.TransTB, i, 4).toString();
         }
 
         return data;
@@ -313,6 +319,7 @@ public class Dashboard {
 
     
      public Object GetData(JTable table, int row_index, int col_index) {
+        System.out.println("access get data");
         return table.getModel().getValueAt(row_index, col_index);
     }
    

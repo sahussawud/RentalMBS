@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rentalmbs;
+package rental;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -21,9 +21,9 @@ public class Register {
     Vehicle vehicle = new Vehicle();
 
     public Register() throws ClassNotFoundException, SQLException {
-        
+            
         this.RegisTB = db.getRegisTB();
-         System.out.println(RegisTB.getRowCount());
+        System.out.println(RegisTB.getRowCount());
     }
 
     public void regist() throws SQLException {
@@ -37,16 +37,14 @@ public class Register {
 
     }
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-       new Register();
-    }
+
     public void deleteVH() throws SQLException {
         db.deleteRegisTB(vehicle.id);
     }
 
     ;
     public void editVH() throws SQLException {
-          if (vehicle.state_rent == true) {
+        if (vehicle.state_rent == true) {
             state_rentST = "true";
         } else {
             state_rentST = "false";
