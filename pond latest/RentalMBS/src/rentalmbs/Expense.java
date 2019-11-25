@@ -1,7 +1,15 @@
 package rentalmbs;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import rentalmbs.Database;
 
@@ -17,29 +25,28 @@ import rentalmbs.Database;
  */
 public class Expense {
     JTable ExpenseTB;
+    
     String ExpenseID,ExpType,payee,detail;
-    Date ExpenseDate;
+    String ExpenseDate;
     double cost;
-
-    public Expense(JTable ExpenseTB, String ExpenseID, String ExpType, String payee, String detail, Date ExpenseDate, double cost) {
+    Database d;
+    
+    public Expense(JTable ExpenseTB, String ExpenseID, String ExpType, String payee, String detail, Date ExpenseDate, double cost) throws ClassNotFoundException, SQLException {
         this.ExpenseTB = ExpenseTB;
         this.ExpenseID = ExpenseID;
         this.ExpType = ExpType;
         this.payee = payee;
         this.detail = detail;
-        this.ExpenseDate = ExpenseDate;
+        
+        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        String Day = Date_Format.format(ExpenseDate);
+        this.ExpenseDate = Day;
         this.cost = cost;
-    }
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Expense rr = new Expense();
-        rr.setExpenseTB(new Database().getExpenseTB());
-        System.out.println(rr.ExpenseTB.getRowCount());
+        this.d = new Database();
         
     }
 
-    Expense() {
-         //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public String toString() {
@@ -52,6 +59,7 @@ public class Expense {
     }
     public void setExpenseTB(JTable ExpenseTB) {
         this.ExpenseTB = ExpenseTB;
+        
     }
     public String getExpenseID() {
         return ExpenseID;
@@ -77,10 +85,10 @@ public class Expense {
     public void setDetail(String detail) {
         this.detail = detail;
     }
-    public Date getExpenseDate() {
+    public String getExpenseDate() {
         return ExpenseDate;
     }
-     public void setExpenseDate(Date ExpenseDate) {
+     public void setExpenseDate(String ExpenseDate) {
         this.ExpenseDate = ExpenseDate;
     }
     public double getCost() {
@@ -92,11 +100,35 @@ public class Expense {
 
    
  
- 
+    public JTable updateExpense() throws SQLException{
+            return d.getExpenseTB();
+    }
+    public JTable addExpense() throws ClassNotFoundException, SQLException{
+                        
+            d.addExpenseTB(ExpenseID, ExpenseDate , ExpType, payee, cost+"", detail);
+            return updateExpense();
     
+        }
+    public JTable editExpense() throws ClassNotFoundException, SQLException{
+           
+              
+           d.editExpenseTB(ExpenseID, ExpenseDate , ExpType, payee, cost+"", detail);
+           return updateExpense();
+           
+    
+    }
+    public JTable deleteExpense(String expenseID) throws ClassNotFoundException, SQLException{
+           
+            d.deleteExpenseTB(expenseID);
+            return updateExpense();
+               
+    }
+    
+    
+}
 
-
-
+    
+   
     
 
     
@@ -108,4 +140,4 @@ public class Expense {
   
  
  
-}
+

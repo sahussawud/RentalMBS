@@ -5,13 +5,22 @@
  */
 package rentalmbs;
 
+import java.sql.SQLException;
+import javax.swing.JTable;
+
 /**
  *
  * @author Asus
  */
 public class CustomerInfo {
+    JTable customerTB;
 
-    public CustomerInfo(String customerID, String name, String surname, String idnumber, String sex, String nation, String phone, String email) {
+    public CustomerInfo() throws ClassNotFoundException, SQLException {
+        
+        customerTB = new JTable();
+        Database d = new Database();
+        customerTB = d.getCustomerTB();       
+            
         this.customerID = customerID;
         this.name = name;
         this.surname = surname;
@@ -22,8 +31,22 @@ public class CustomerInfo {
         this.email = email;
     }
 
-    CustomerInfo() {
-         //To change body of generated methods, choose Tools | Templates.
+    
+    public void getCustomerfromID(String id){
+        int row = customerTB.getRowCount();
+         for (int i = 0; i < row; i++) {
+            this.customerID = GetData(customerTB, i, 0).toString();
+            this.name = GetData(customerTB, i, 1).toString();
+            this.surname = GetData(customerTB, i, 2).toString();
+            this.idnumber = GetData(customerTB, i, 3).toString();
+            this.sex = GetData(customerTB, i, 4).toString();
+            this.nation = GetData(customerTB, i, 5).toString();
+            this.phone = GetData(customerTB, i, 6).toString();
+            this.email = GetData(customerTB, i, 7).toString();
+        }
+    }
+     public Object GetData(JTable table, int row_index, int col_index) {
+        return table.getModel().getValueAt(row_index, col_index);
     }
 
     @Override

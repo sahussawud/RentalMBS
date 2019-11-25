@@ -2,8 +2,19 @@ package rentalmbs;
 
 
 
+import java.awt.List;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import rentalmbs.Database;
 
@@ -23,10 +34,10 @@ public class Rent {
     int Mail;
     double Cost,Deposit;
     Date StartDate,Expire;
+    int[] l_month = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
 
-
-    public Rent(String RentID, String CustomerID, String VehicleID, String CustomerName, String TotalTime, int Mail, double Cost, double Deposit, Date StartDate, Date Expire) {
+    public Rent(String RentID, String CustomerID, String VehicleID, String CustomerName, String TotalTime, int Mail, double Cost, double Deposit, Date StartDate, Date Expire) throws ClassNotFoundException, SQLException {
         this.RentID = RentID;
         this.CustomerID = CustomerID;
         this.VehicleID = VehicleID;
@@ -37,8 +48,12 @@ public class Rent {
         this.Deposit = Deposit;
         this.StartDate = StartDate;
         this.Expire = Expire;
+        Database db = new Database();
+        
     }
-
+ public Rent() throws ClassNotFoundException, SQLException{
+     Database db = new Database();
+ }
     public Rent(JTable RentTB) {
         this.RentTB = RentTB;
     }
@@ -52,9 +67,8 @@ public class Rent {
     }
     
     
-   Rent() {
-         //To change body of generated methods, choose Tools | Templates.
-    }
+
+  
 
     public String getRentID() {
         return RentID;
@@ -121,8 +135,70 @@ public class Rent {
         this.Expire = Expire;
     }
     
+     public String[] CalculateRent() throws ParseException, ClassNotFoundException, SQLException{
+            int monthcost = 0;
+            int daycost = 0;
+            String[] a = new String[2];
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                String timeString = formatter.format(StartDate);
+                
+                int m = Integer.parseInt(timeString.substring(3, 5));
+                String timeString2 = formatter.format(Expire);
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                java.util.Date firstDate = sdf.parse(timeString);
+                java.util.Date secondDate = sdf.parse(timeString2);
+                
+              //l_month[m-1];
+               double day_diff = (secondDate.getTime() - firstDate.getTime())/(1000*60*60*24)+1;
+               int year3 = (int)Math.floor(day_diff/365);
+               int month2 = (int)(day_diff%365)/l_month[m-1];
+               int day2 = (int)((day_diff%365)%l_month[m-1]);
+            System.out.println("day different**"+day2+"**month diff***"+month2+"*ปี***"+year3+"****จำนวนวันของเดือนเช่า ="+m+"****เริ่มเช่า = "+timeString+" ถึง "+timeString2);
+            
+            Database db = new Database();
+           
+            
+            PreparedStatement pst4 = db.con.prepareStatement("select * from carregis where carid = ?");
+            pst4.setString(1, VehicleID);
+            ResultSet rs = pst4.executeQuery();
 
-    
+            while (rs.next()) {
+
+                try {
+                    monthcost = rs.getInt(6);
+                    daycost = rs.getInt(8);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+            a[0] = ""+month2;
+            a[1] = ""+day2;
+            
+           
+            if (month2 != 0 && day2 != 0) {
+              a[2]= "" + (monthcost * month2 + daycost * day2);
+
+            } else if (month2 == 0 && day2 != 0) {
+                a[2]="" + (daycost * day2);
+
+            } else if (month2 != 0 && day2 == 0) {
+               a[2]="" + (monthcost * month2);
+
+            }
+            return a;
+     }
+     public void addRent() throws ClassNotFoundException, SQLException{
+          Database db = new Database();
+         db.rentUpdate(RentID,VehicleID,CustomerID,""+StartDate,""+Expire,""+Cost,""+Deposit,""+Mail);
+         
+     }
+    public JComboBox loadcarRent() throws ClassNotFoundException, SQLException{
+        Database db = new Database();
+        JComboBox d = db.loadcar();
+        return d;
+    }
 
     
 

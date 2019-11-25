@@ -240,15 +240,15 @@ public class Database {
         return dashboard;
     }
 
-    public void addDashboardTB(){
-        
-    }
-
-    public void editDashboardTB() {
-    }
-
-    public void deleteDashboardTB() {
-    }
+//    public void addDashboardTB(){
+//        
+//    }
+//
+//    public void editDashboardTB() {
+//    }
+//
+//    public void deleteDashboardTB() {
+//    }
 
     public JTable getCheckTB() throws SQLException {
         JTable CheckTB = new JTable();
@@ -278,14 +278,14 @@ public class Database {
 
         return CheckTB;
     }
-     public void addCheck() {
-    }
-
-    public void editCheckTB() {
-    }
-
-    public void deleteCheckTB() {
-    }
+//     public void addCheck() {
+//    }
+//
+//    public void editCheckTB() {
+//    }
+//
+//    public void deleteCheckTB() {
+//    }
     
 
     public JTable getTransTB() throws SQLException {

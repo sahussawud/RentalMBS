@@ -124,7 +124,7 @@ public class NewJFrame extends javax.swing.JFrame {
         comsta = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         costday = new javax.swing.JTextField();
-        datej = new com.toedter.calendar.JDateChooser();
+        datej = new org.netbeans.modules.form.InvalidComponent();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -144,8 +144,8 @@ public class NewJFrame extends javax.swing.JFrame {
         idcar = new javax.swing.JComboBox<>();
         cusid = new javax.swing.JTextField();
         cusname = new javax.swing.JTextField();
-        date = new com.toedter.calendar.JDateChooser();
-        duedate = new com.toedter.calendar.JDateChooser();
+        date = new org.netbeans.modules.form.InvalidComponent();
+        duedate = new org.netbeans.modules.form.InvalidComponent();
         fee = new javax.swing.JTextField();
         txtava = new javax.swing.JLabel();
         month = new javax.swing.JTextField();
@@ -188,7 +188,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        date1 = new com.toedter.calendar.JDateChooser();
+        date1 = new org.netbeans.modules.form.InvalidComponent();
         late = new javax.swing.JTextField();
         IDRent = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
@@ -205,8 +205,8 @@ public class NewJFrame extends javax.swing.JFrame {
         txtabout = new javax.swing.JTextArea();
         chkBox5 = new javax.swing.JCheckBox();
         id_carrepair = new javax.swing.JComboBox<>();
-        daterepair = new com.toedter.calendar.JDateChooser();
-        dateprb = new com.toedter.calendar.JDateChooser();
+        daterepair = new org.netbeans.modules.form.InvalidComponent();
+        dateprb = new org.netbeans.modules.form.InvalidComponent();
         jLabel67 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         repairtable = new javax.swing.JTable();
@@ -231,7 +231,7 @@ public class NewJFrame extends javax.swing.JFrame {
         IDexpense = new javax.swing.JTextField();
         reciever = new javax.swing.JTextField();
         amount_exp = new javax.swing.JTextField();
-        dateeeee = new com.toedter.calendar.JDateChooser();
+        dateeeee = new org.netbeans.modules.form.InvalidComponent();
         jScrollPane6 = new javax.swing.JScrollPane();
         Expensetable = new javax.swing.JTable();
         Summary = new javax.swing.JPanel();
@@ -252,7 +252,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jCalendar1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel11 = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -577,9 +577,7 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(10, 180, 448, 400);
-
-        jLabel68.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Documents\\NetBeansProjects\\rental\\src\\rental\\1.png")); // NOI18N
+        jPanel7.setBounds(10, 180, 469, 402);
         jPanel1.add(jLabel68);
         jLabel68.setBounds(0, 0, 2370, 900);
 
@@ -690,7 +688,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                     .addComponent(comsta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                                 .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(61, 61, 61)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1174,10 +1172,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        date1.setDate(new java.util.Date(1574166507000L));
-        date1.setDateFormatString("d MMMMM, yyyy");
-        date1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-
         late.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lateActionPerformed(evt);
@@ -1344,11 +1338,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel61.setText("ID รถ");
         menurepair.add(jLabel61);
-        jLabel61.setBounds(30, 180, 40, 14);
+        jLabel61.setBounds(30, 180, 40, 16);
 
         jLabel64.setText("ประเภทการซ่อมบำรุง");
         menurepair.add(jLabel64);
-        jLabel64.setBounds(30, 220, 120, 14);
+        jLabel64.setBounds(30, 220, 120, 16);
 
         chkBox4.setText("ระบบของเหลว");
         chkBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -1357,7 +1351,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(chkBox4);
-        chkBox4.setBounds(160, 310, 190, 23);
+        chkBox4.setBounds(160, 310, 190, 25);
 
         chkBox1.setBackground(new java.awt.Color(255, 153, 102));
         chkBox1.setText("ระบบเครื่องยนต์");
@@ -1367,7 +1361,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(chkBox1);
-        chkBox1.setBounds(160, 220, 180, 23);
+        chkBox1.setBounds(160, 220, 180, 25);
 
         chkBox3.setText("ระบบไฟ");
         chkBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -1376,7 +1370,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(chkBox3);
-        chkBox3.setBounds(160, 280, 92, 23);
+        chkBox3.setBounds(160, 280, 92, 25);
 
         chkBox2.setText("ระบบส่งกำลัง");
         chkBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -1385,15 +1379,15 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(chkBox2);
-        chkBox2.setBounds(160, 250, 180, 23);
+        chkBox2.setBounds(160, 250, 180, 25);
 
         jLabel65.setText("รายละเอียด");
         menurepair.add(jLabel65);
-        jLabel65.setBounds(30, 410, 60, 14);
+        jLabel65.setBounds(30, 410, 60, 16);
 
         jLabel66.setText("วันที่ซ่อม");
         menurepair.add(jLabel66);
-        jLabel66.setBounds(30, 580, 70, 14);
+        jLabel66.setBounds(30, 580, 70, 16);
 
         txtabout.setColumns(20);
         txtabout.setRows(5);
@@ -1409,7 +1403,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(chkBox5);
-        chkBox5.setBounds(160, 340, 92, 23);
+        chkBox5.setBounds(160, 340, 92, 25);
 
         id_carrepair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1417,15 +1411,15 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         menurepair.add(id_carrepair);
-        id_carrepair.setBounds(80, 180, 97, 20);
+        id_carrepair.setBounds(80, 180, 97, 22);
         menurepair.add(daterepair);
-        daterepair.setBounds(110, 580, 144, 20);
+        daterepair.setBounds(110, 580, 144, 18);
         menurepair.add(dateprb);
-        dateprb.setBounds(350, 580, 137, 20);
+        dateprb.setBounds(350, 580, 137, 18);
 
         jLabel67.setText("วันหมด พรบ.");
         menurepair.add(jLabel67);
-        jLabel67.setBounds(270, 580, 80, 14);
+        jLabel67.setBounds(270, 580, 80, 16);
 
         repairtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1708,7 +1702,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         user_panel.setLayout(new java.awt.GridLayout(1, 3));
 
-        status_panel.setLayout(new java.awt.GridLayout());
+        status_panel.setLayout(new java.awt.GridLayout(1, 0));
 
         available_p.setBackground(new java.awt.Color(204, 255, 204));
         available_p.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2349,7 +2343,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel41.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\75210217_1336767483168345_6444166070470180864_n.png")); // NOI18N
         jLabel41.setText("jLabel40");
 
         jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -2404,7 +2397,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Customer");
 
-        jLabel40.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\75587523_542018146581752_2667128756140769280_n.png")); // NOI18N
         jLabel40.setText("jLabel40");
 
         javax.swing.GroupLayout sidecustomerLayout = new javax.swing.GroupLayout(sidecustomer);
@@ -2446,8 +2438,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel44.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\78287200_1012319259107641_8759957039985197056_n.png")); // NOI18N
-
         javax.swing.GroupLayout siderentLayout = new javax.swing.GroupLayout(siderent);
         siderent.setLayout(siderentLayout);
         siderentLayout.setHorizontalGroup(
@@ -2485,8 +2475,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Return");
-
-        jLabel46.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\78542563_519691698873012_9093333019976007680_n.png")); // NOI18N
 
         javax.swing.GroupLayout sidereturnLayout = new javax.swing.GroupLayout(sidereturn);
         sidereturn.setLayout(sidereturnLayout);
@@ -2527,8 +2515,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Repair");
 
-        jLabel45.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\78310284_434732417428934_3343197290461396992_n.png")); // NOI18N
-
         javax.swing.GroupLayout siderepairLayout = new javax.swing.GroupLayout(siderepair);
         siderepair.setLayout(siderepairLayout);
         siderepairLayout.setHorizontalGroup(
@@ -2549,7 +2535,6 @@ public class NewJFrame extends javax.swing.JFrame {
             .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel39.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\OOP PROJECT\\test.png")); // NOI18N
         jLabel39.setText("jLabel39");
 
         jPanel4.setBackground(new java.awt.Color(255, 51, 102));
@@ -2566,8 +2551,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("DashBoard");
-
-        jLabel48.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\7.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -2589,7 +2572,7 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel42)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 51, 0));
@@ -2609,8 +2592,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Expenses");
-
-        jLabel47.setIcon(new javax.swing.ImageIcon("C:\\Users\\05\\Desktop\\6.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2684,7 +2665,7 @@ public class NewJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 974, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 974, Short.MAX_VALUE)
         );
 
         pack();
@@ -4851,17 +4832,17 @@ public void notifi() throws ParseException {
     private javax.swing.JTextField cusid;
     private javax.swing.JTextField cusname;
     private javax.swing.JPanel customer;
-    private com.toedter.calendar.JDateChooser date;
-    private com.toedter.calendar.JDateChooser date1;
-    private com.toedter.calendar.JDateChooser dateeeee;
-    private com.toedter.calendar.JDateChooser datej;
-    private com.toedter.calendar.JDateChooser dateprb;
-    private com.toedter.calendar.JDateChooser daterepair;
+    private org.netbeans.modules.form.InvalidComponent date;
+    private org.netbeans.modules.form.InvalidComponent date1;
+    private org.netbeans.modules.form.InvalidComponent dateeeee;
+    private org.netbeans.modules.form.InvalidComponent datej;
+    private org.netbeans.modules.form.InvalidComponent dateprb;
+    private org.netbeans.modules.form.InvalidComponent daterepair;
     private javax.swing.JTextField day;
     private javax.swing.JButton deleteExpense;
     private javax.swing.JTextArea detail;
     private javax.swing.JPanel detail_panel;
-    private com.toedter.calendar.JDateChooser duedate;
+    private org.netbeans.modules.form.InvalidComponent duedate;
     private javax.swing.JButton editExpense;
     private javax.swing.JTextField fee;
     private javax.swing.JComboBox<String> id_carrepair;
@@ -4877,7 +4858,7 @@ public void notifi() throws ParseException {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private org.netbeans.modules.form.InvalidComponent jCalendar1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
