@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package rental;
-
+import rental.Rent;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.BasicStroke;
@@ -92,7 +92,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     PreparedStatement pst1;
     PreparedStatement pst2;
     PreparedStatement pst;
-    
+    Database db;
     int index = 1;
     Date date22,due22;
     /**
@@ -636,7 +636,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(10, 180, 568, 427);
+        jPanel7.setBounds(10, 180, 566, 425);
 
         jLabel80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/customer.png"))); // NOI18N
         jLabel80.setMaximumSize(new java.awt.Dimension(1390, 1000));
@@ -868,7 +868,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rental/register.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         carregis.add(jLabel1);
-        jLabel1.setBounds(0, -10, 1435, 875);
+        jLabel1.setBounds(0, -10, 1428, 875);
 
         jPanel6.add(carregis, "card2");
 
@@ -1800,7 +1800,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         status_panel.add(Wait);
 
         top_plane.add(status_panel);
-        status_panel.setBounds(140, 356, 460, 93);
+        status_panel.setBounds(140, 356, 460, 92);
 
         jCalendar1.setFont(new java.awt.Font("Kanit Light", 0, 12)); // NOI18N
         top_plane.add(jCalendar1);
@@ -2430,7 +2430,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         siderentLayout.setHorizontalGroup(
             siderentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(siderentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2816,20 +2816,19 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         int selectedrow = Table_cs.getSelectedRow();
 
         String id = IDCustomer2.getText();
-
+       
         int dialogResult = JOptionPane.showConfirmDialog(this, "Do you want to delete your data", "Warning", JOptionPane.YES_NO_OPTION);
         if (dialogResult == JOptionPane.YES_OPTION) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
-                pst = con.prepareStatement("delete from Customer where id_customer=?");
-                pst.setString(1, id);
-                pst.executeUpdate();
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
+//                pst = con.prepareStatement("delete from Customer where id_customer=?");
+//                pst.setString(1, id);
+//                pst.executeUpdate();
+                db.deleteCustomerTB(id);
                 JOptionPane.showMessageDialog(this, "Data Delete");
                 showData();
 
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -2877,33 +2876,43 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         }
     }
     private void Add_csActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_csActionPerformed
-        // TODO add your handling code here:
-        String id = IDCustomer2.getText();
-        String name = textName2.getText();
-        String lname = textLName2.getText();
-        String cid = CardID2.getText();
-        String nation = Nationality2.getText();
-        String tels = Tel2.getText();
-        String mail = Email2.getText();
-        String Sex = sex2.getSelectedItem().toString();
-
-        String sql = "insert into Customer value('" + id + "','" + name + "','" + lname + "','" + cid + "','" + nation + "','" + tels + "','" + mail + "','" + Sex + "')";
-        String sql_read = "select * from Customer";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate(sql);
-            pst = con.prepareStatement(sql_read);
-            ResultSet rs = pst.executeQuery();
-            Table_cs.setModel(DbUtils.resultSetToTableModel(rs));
-            ///ResultSet rs = stmt.executeQuery("SELECT * FROM carregis;");
-            showData();
-            System.out.println("add success");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            // TODO add your handling code here:
+            
+            
+            
+            
+            String id = IDCustomer2.getText();
+            String name = textName2.getText();
+            String lname = textLName2.getText();
+            String cid = CardID2.getText();
+            String nation = Nationality2.getText();
+            String tels = Tel2.getText();
+            String mail = Email2.getText();
+            String Sex = sex2.getSelectedItem().toString();
+            db.addCustomerTB(Table_cs, id, name,lname,cid, nation,tels, mail, Sex);
+//        String sql = "insert into Customer value('" + id + "','" + name + "','" + lname + "','" + cid + "','" + nation + "','" + tels + "','" + mail + "','" + Sex + "')";
+//        String sql_read = "select * from Customer";
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//            Statement stmt = con.createStatement();
+//            stmt.executeUpdate(sql);
+//            pst = con.prepareStatement(sql_read);
+//            ResultSet rs = pst.executeQuery();
+//            Table_cs.setModel(DbUtils.resultSetToTableModel(rs));
+//            ///ResultSet rs = stmt.executeQuery("SELECT * FROM carregis;");
+//            showData();
+//            System.out.println("add success");
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Add_csActionPerformed
 
@@ -2916,7 +2925,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         //ให้เลือก editCustomer มาใช้
         DefaultTableModel d1 = (DefaultTableModel) Table_cs.getModel();
         int selectedrow = Table_cs.getSelectedRow();
-
+        
         try {
             String id = IDCustomer2.getText();
             String name = textName2.getText();
@@ -2926,26 +2935,27 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String tels = Tel2.getText();
             String mail = Email2.getText();
             String Sex = sex2.getSelectedItem().toString();
-
-            Class.forName("com.mysql.jdbc.Driver");
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-
-            pst = con.prepareStatement("update  Customer set name_customer=?,lname_customer=?,cardid_customer=?,nationality_customer=?,tel_customer=?,email_customer=?,sex_customer=? where id_customer=? ");
-
-            System.out.println(".");
-            pst.setString(1, name);
-            pst.setString(2, lname);
-            pst.setString(3, cid);
-            pst.setString(4, nation);
-            pst.setString(5, tels);
-            pst.setString(6, mail);
-            pst.setString(7, Sex);
-            pst.setString(8, id);
-
-            pst.executeUpdate();
-            showData();
-            JOptionPane.showMessageDialog(this, "Data Updated");
+            db.editCustomerTB(Table_cs,  id,  name, lname,cid,  nation, tels,  mail,  Sex);
+//            Class.forName("com.mysql.jdbc.Driver");
+//
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//
+//            pst = con.prepareStatement("update  Customer set name_customer=?,lname_customer=?,cardid_customer=?,nationality_customer=?,tel_customer=?,email_customer=?,sex_customer=? where id_customer=? ");
+//
+//            System.out.println(".");
+//            pst.setString(1, name);
+//            pst.setString(2, lname);
+//            pst.setString(3, cid);
+//            pst.setString(4, nation);
+//            pst.setString(5, tels);
+//            pst.setString(6, mail);
+//            pst.setString(7, Sex);
+//            pst.setString(8, id);
+//
+//            pst.executeUpdate();
+                   
+              showData();
+//            JOptionPane.showMessageDialog(this, "Data Updated");
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -3000,27 +3010,29 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String cost = txtcost.getText();
             String costd = costday.getText();
             String status = comsta.getSelectedItem().toString();
-
+//           SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = datej.getDate();
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-                Statement stmt = con.createStatement();
-                PreparedStatement pst;
-                pst = con.prepareStatement("insert into carregis(carid,carbrand,carmodel,carcolor,cartabian,carprice,carstatus,carpriceday,date) values(?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, idrod);
-                pst.setString(2, band);
-                pst.setString(3, type);
-                pst.setString(4, color);
-                pst.setString(5, tabian);
-                pst.setString(6, cost);
-                pst.setString(7, status);
-                pst.setString(8, costd);
-
-                SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-                String date = Date_Format.format(datej.getDate());
-                pst.setString(9, date);
-
-                pst.executeUpdate();
+                db.addregisTB( idrod,  band, type,  color,  tabian,  cost,  status,  costd,date);
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//                Statement stmt = con.createStatement();
+//                PreparedStatement pst;
+//                pst = con.prepareStatement("insert into carregis(carid,carbrand,carmodel,carcolor,cartabian,carprice,carstatus,carpriceday,date) values(?,?,?,?,?,?,?,?,?)");
+//                pst.setString(1, idrod);
+//                pst.setString(2, band);
+//                pst.setString(3, type);
+//                pst.setString(4, color);
+//                pst.setString(5, tabian);
+//                pst.setString(6, cost);
+//                pst.setString(7, status);
+//                pst.setString(8, costd);
+//
+//                SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+//                String date = Date_Format.format(datej.getDate());
+//                pst.setString(9, date);
+//
+//                pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Car Added.......");
 
                 txtid.setText("");
@@ -3032,8 +3044,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 costday.setText("");
                 comsta.setSelectedIndex(-1);
                 table_update();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -3052,16 +3062,16 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             int yesno = JOptionPane.showConfirmDialog(this, "คุณต้องการจะลบข้อมูลนี้?", "Warning", JOptionPane.YES_NO_OPTION);
             if (yesno == JOptionPane.YES_OPTION) {
                 try {
-
-                    System.out.println("Yesss");
-                    Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-
-                    pst = con.prepareStatement("delete from carregis where carid=?");
-                    pst.setString(1, id);
-                    pst.executeUpdate();
-
-                    JOptionPane.showMessageDialog(this, "ลบข้อมูลเรียบร้อย");
+                    db.deleteRegisTB(id);
+//                    System.out.println("Yesss");
+//                    Class.forName("com.mysql.jdbc.Driver");
+//                    Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//
+//                    pst = con.prepareStatement("delete from carregis where carid=?");
+//                    pst.setString(1, id);
+//                    pst.executeUpdate();
+//
+//                    JOptionPane.showMessageDialog(this, "ลบข้อมูลเรียบร้อย");
                     table_update();
                     txtid.setText("");
                     txtbrand.setText("");
@@ -3071,9 +3081,8 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     txtcost.setText("");
                     costday.setText("");
                     comsta.setSelectedIndex(-1);
+    
 
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
                     Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -3173,9 +3182,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             JOptionPane.showMessageDialog(this, "กรุณากดแถวที่ต้องการแก้ไข");
         }
         try {
+            
             String id = d1.getValueAt(selectedrow, 0).toString();
             String brand = txtbrand.getText();
-
+            Date day = datej.getDate();
             String type = txttype.getText();
             String color = txtcolor.getText();
             String tabian = txttabian.getText();
@@ -3184,19 +3194,19 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String status = comsta.getSelectedItem().toString();
             System.out.println(txtid.getText());
             System.out.println(brand);
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-            pst = con.prepareStatement("update carregis set carbrand=?,carmodel=?,carcolor=?,cartabian=?,carprice=?,carstatus=?,carpriceday=? where carid=? ");
-            pst.setString(1, brand);
-            pst.setString(2, type);
-            pst.setString(3, color);
-            pst.setString(4, tabian);
-            pst.setString(5, cost);
-            pst.setString(6, status);
-            pst.setString(7, costd);
-            pst.setString(8, id);
-            pst.executeUpdate();
+            db.editRegisTB( id,  brand,  type,  color,  tabian,  cost,  status,  costd,  day);
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//            pst = con.prepareStatement("update carregis set carbrand=?,carmodel=?,carcolor=?,cartabian=?,carprice=?,carstatus=?,carpriceday=? where carid=? ");
+//            pst.setString(1, brand);
+//            pst.setString(2, type);
+//            pst.setString(3, color);
+//            pst.setString(4, tabian);
+//            pst.setString(5, cost);
+//            pst.setString(6, status);
+//            pst.setString(7, costd);
+//            pst.setString(8, id);
+//            pst.executeUpdate();
 
             table_update();
             JOptionPane.showMessageDialog(this, "Data Updated");
@@ -3209,8 +3219,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             costday.setText("");
             comsta.setSelectedIndex(-1);
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3280,7 +3288,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         String deposit = Deposit.getText();
         String fine = TotalFine.getText();
         String late_return = late.getText();
-
+        
         SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
         String date1 = Date_Format.format(date.getDate());
 
@@ -3531,30 +3539,36 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String checkBox5 = chkBox5.getText();
             Date dateRepair = daterepair.getDate();
             Date datePrb = dateprb.getDate();
+//            MileHire.setText(mile);
+//        DateHire.setText(duedatee);
+//        IDCustomer.setText(cusidd);
+//        IDCar.setText(caridd);
+//        Deposit.setText("" + mudjjum);
 
-            SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-            String date = Date_Format.format(dateRepair);
-
-            SimpleDateFormat Date_Format1 = new SimpleDateFormat("dd-MM-yyyy");
-            String datep = Date_Format1.format(datePrb);
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-            System.out.println("Database Connection succesful");
-            Statement stmt = con.createStatement();
-            PreparedStatement pst;
-            pst = con.prepareStatement("insert into carrepair(carid,carbrand,carmodel,carcolor,cartabian,type,about,daterepair,dateprb) values(?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, idcar3);
-            pst.setString(2, carbrand);
-            pst.setString(3, carmodel);
-            pst.setString(4, carcolor);
-            pst.setString(5, cartabian);
-            pst.setString(6, repair);
-            pst.setString(7, about);
-            pst.setString(8, date);
-            pst.setString(9, datep);
-
-            pst.executeUpdate();
+            db.addRepairTB(  idcar3, carbrand, carmodel, carcolor,cartabian,repair,about, dateRepair, datePrb) ;
+//            SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+//            String date = Date_Format.format(dateRepair);
+//
+//            SimpleDateFormat Date_Format1 = new SimpleDateFormat("dd-MM-yyyy");
+//            String datep = Date_Format1.format(datePrb);
+//
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//            System.out.println("Database Connection succesful");
+//            Statement stmt = con.createStatement();
+//            PreparedStatement pst;
+//            pst = con.prepareStatement("insert into carrepair(carid,carbrand,carmodel,carcolor,cartabian,type,about,daterepair,dateprb) values(?,?,?,?,?,?,?,?,?)");
+//            pst.setString(1, idcar3);
+//            pst.setString(2, carbrand);
+//            pst.setString(3, carmodel);
+//            pst.setString(4, carcolor);
+//            pst.setString(5, cartabian);
+//            pst.setString(6, repair);
+//            pst.setString(7, about);
+//            pst.setString(8, date);
+//            pst.setString(9, datep);
+//
+//            pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Car Added.......");
             showData2();
             chkBox1.setSelected(false);
@@ -3567,8 +3581,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
            
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3580,7 +3592,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             JOptionPane.showMessageDialog(this, "กรุณากดแถวที่ต้องการแก้ไข");
         } else {
             try {
-
+                
                 idcar4 = id_carrepair.getSelectedItem().toString();
                 String about = txtabout.getText();
                 String checkBox1 = chkBox1.getText();
@@ -3588,33 +3600,28 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 String checkBox3 = chkBox3.getText();
                 String checkBox4 = chkBox4.getText();
                 String checkBox5 = chkBox5.getText();
-
-                SimpleDateFormat Date_Format = new SimpleDateFormat("yyyy-MM-dd");
-                String date = Date_Format.format(daterepair.getDate());
-
-                SimpleDateFormat Date_Format1 = new SimpleDateFormat("yyyy-MM-dd");
-                String datep = Date_Format1.format(dateprb.getDate());
-
-                Class.forName("com.mysql.jdbc.Driver");
-
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-
-                pst = con.prepareStatement("update carrepair SET carbrand=?,carmodel=?,carcolor=?,cartabian=?,type=?,about=?,daterepair=?,dateprb=? WHERE carid=?");
-                pst.setString(1, carbrand);
-                pst.setString(2, carmodel);
-                pst.setString(3, carcolor);
-                pst.setString(4, cartabian);
-                pst.setString(5, repair);
-                pst.setString(6, about);
-                pst.setString(7, date);
-                pst.setString(8, datep);
-                pst.setString(9, idcar4);
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Car Update.......");
+                Date dateRepair = daterepair.getDate();
+            Date datePrb = dateprb.getDate();
+               
+                db.editRepairTB(carbrand, carmodel, carcolor, cartabian,repair,about,dateRepair, datePrb, idcar4);
+//                Class.forName("com.mysql.jdbc.Driver");
+//
+//                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//
+//                pst = con.prepareStatement("update carrepair SET carbrand=?,carmodel=?,carcolor=?,cartabian=?,type=?,about=?,daterepair=?,dateprb=? WHERE carid=?");
+//                pst.setString(1, carbrand);
+//                pst.setString(2, carmodel);
+//                pst.setString(3, carcolor);
+//                pst.setString(4, cartabian);
+//                pst.setString(5, repair);
+//                pst.setString(6, about);
+//                pst.setString(7, date);
+//                pst.setString(8, datep);
+//                pst.setString(9, idcar4);
+//                pst.executeUpdate();
+//                JOptionPane.showMessageDialog(this, "Car Update.......");
                 showData2();
                 repair = "";
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -3699,20 +3706,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String Detail = detail.getText();
 
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-                Statement stmt = con.createStatement();
-                PreparedStatement pst;
-                pst = con.prepareStatement("insert into ExpenseTB(id_expense,date_expense,type_expense,reciever_expense,amount_expense,detail_expense,least_editor) values(?,?,?,?,?,?,?)");
-                pst.setString(1, Id);
-                pst.setString(2, Day);
-                pst.setString(3, type);
-                pst.setString(4, Reciver);
-                pst.setString(5, Amount);
-                pst.setString(6, Detail);
-                pst.setString(7, this.user);
-
-                pst.executeUpdate();
+                db.addExpenseTB(Id,Day,type,  Reciver,Amount,Detail);
                 JOptionPane.showMessageDialog(this, "Car Added.......");
 
                 IDexpense.setText("");
@@ -3722,8 +3716,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 amount_exp.setText("");
                 detail.setText("");
                 table_update3();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -3747,14 +3739,15 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             int yesno = JOptionPane.showConfirmDialog(this, "คุณต้องการจะลบข้อมูลนี้?", "Warning", JOptionPane.YES_NO_OPTION);
             if (yesno == JOptionPane.YES_OPTION) {
                 try {
-
-                    System.out.println("Yess");
-                    Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-
-                    pst = con.prepareStatement("delete from ExpenseTB where id_expense=?");
-                    pst.setString(1, id);
-                    pst.executeUpdate();
+                    System.out.println(id);
+                    db.deleteExpenseTB(id);
+//                    System.out.println("Yess");
+//                    Class.forName("com.mysql.jdbc.Driver");
+//                    Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//
+//                    pst = con.prepareStatement("delete from ExpenseTB where id_expense=?");
+//                    pst.setString(1, id);
+                    
 
                     JOptionPane.showMessageDialog(this, "ลบข้อมูลเรียบร้อย");
 
@@ -3770,9 +3763,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                     amount_exp.setText("");
                     detail.setText("");
                     Type.setSelectedIndex(-1);
-
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    
                 } catch (SQLException ex) {
                     Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -3813,20 +3804,21 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             String Detail = detail.getText();
             System.out.println(IDexpense.getText());
             System.out.println(type);
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-            pst = con.prepareStatement("update ExpenseTB set date_expense=?,type_expense=?,reciever_expense=?,amount_expense=?,detail_expense=?,least_editor=? where id_expense=? ");
-
-            pst.setString(1, Day);
-            pst.setString(2, type);
-            pst.setString(3, Reciver);
-            pst.setString(4, Amount);
-            pst.setString(5, Detail);
-            pst.setString(6, this.user);
-            pst.setString(7, id);
-
-            pst.executeUpdate();
+            db.editExpenseTB( id, Day, type,  Reciver, Amount, Detail);
+//
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//            pst = con.prepareStatement("update ExpenseTB set date_expense=?,type_expense=?,reciever_expense=?,amount_expense=?,detail_expense=? where id_expense=? ");
+//
+//            pst.setString(1, Day);
+//            pst.setString(2, type);
+//            pst.setString(3, Reciver);
+//            pst.setString(4, Amount);
+//            pst.setString(5, Detail);
+//            pst.setString(6, this.user);
+//            pst.setString(7, id);
+//
+//            pst.executeUpdate();
 
             table_update3();
             JOptionPane.showMessageDialog(this, "Data Updated");
@@ -3837,8 +3829,6 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             amount_exp.setText("");
             detail.setText("");
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3869,7 +3859,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         amount_exp.setText(d1.getValueAt(selectedrow, 4).toString());
         detail.setText(d1.getValueAt(selectedrow, 5).toString());
         try {
-            java.util.Date date9 = new SimpleDateFormat("yyyy-MM-dd").parse((String) d1.getValueAt(selectedrow, 6).toString());
+            java.util.Date date9 = new SimpleDateFormat("yyyy-MM-dd").parse((String) d1.getValueAt(selectedrow, 1).toString());
             dateeeee.setDate(date9);
         } catch (ParseException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -4106,25 +4096,26 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             SimpleDateFormat Date_Format2 = new SimpleDateFormat("dd-MM-yyyy");
             String due2 = Date_Format2.format(duedate.getDate());
            
-            System.out.println(due2);
-            System.out.println(date2);
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
-            PreparedStatement pst3 = con.prepareStatement("insert into Rental(RentalNum,car_id,cust_id,due,date,fee,mudjum,mile,rentstatus) values(?,?,?,?,?,?,?,?,?)");
-            pst3.setString(1, rent_id);
-            pst3.setString(2, car_id);
-            pst3.setString(3, cus_id);
-            pst3.setString(4, date2);
-            pst3.setString(5, due2);
-            pst3.setString(6, feee);
-            pst3.setString(7, binder);
-            pst3.setString(8, Mile);
-            pst3.setString(9, "ยังไม่คืน");
-            pst3.executeUpdate();
-            PreparedStatement pst2 = con.prepareStatement("update carregis set carstatus = 'ไม่ว่าง' where carid = ?");
-            pst2.setString(1, car_id);
-            pst2.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Updated");
+//            System.out.println(due2);
+//            System.out.println(date2);
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base?useUnicode=true&characterEncoding=utf-8", "it61070203_base", "123456");
+//            PreparedStatement pst3 = con.prepareStatement("insert into Rental(RentalNum,car_id,cust_id,due,date,fee,mudjum,mile,rentstatus) values(?,?,?,?,?,?,?,?,?)");
+//            pst3.setString(1, rent_id);
+//            pst3.setString(2, car_id);
+//            pst3.setString(3, cus_id);
+//            pst3.setString(4, date2);
+//            pst3.setString(5, due2);
+//            pst3.setString(6, feee);
+//            pst3.setString(7, binder);
+//            pst3.setString(8, Mile);
+//            pst3.setString(9, "ยังไม่คืน");
+//            pst3.executeUpdate();
+//            PreparedStatement pst2 = con.prepareStatement("update carregis set carstatus = 'ไม่ว่าง' where carid = ?");
+//            pst2.setString(1, car_id);
+//            pst2.executeUpdate();
+//            JOptionPane.showMessageDialog(this, "Updated");
+            db.rentUpdate(rent_id,car_id,cus_id,date2,due2,feee,binder,Mile);
 
             cusid.setText("");
             cusname.setText("");
@@ -4153,41 +4144,40 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try {
+        try {                                         
             String car_id = idcar.getSelectedItem().toString();
-            String cus_id = cusname.getText();
+            String cus_id = cusid.getText();
+            String rent_id = idrent.getText();
+            String binder = mud.getText();
+            String feee = fee.getText();
+            String Mile = mileinrent.getText();
+            String namecus= cusname.getText();
+            int monthcost =0;
+                    int daycost =0;
+            Date date2 = date.getDate();
             
-            int monthcost = 0;
-            int daycost = 0;
-            
-            
-                Date date22 = date.getDate();
-                Date due22 = duedate.getDate();
-
-            
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-                String timeString = formatter.format(date22);
-                
-                int m = Integer.parseInt(timeString.substring(3, 5));
-                String timeString2 = formatter.format(due22);
-                
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-                Date firstDate = sdf.parse(timeString);
-                Date secondDate = sdf.parse(timeString2);
-                
-              //l_month[m-1];
-               double day_diff = (secondDate.getTime() - firstDate.getTime())/(1000*60*60*24)+1;
-               int year3 = (int)Math.floor(day_diff/365);
-               int month2 = (int)(day_diff%365)/l_month[m-1];
-               int day2 = (int)((day_diff%365)%l_month[m-1]);
-            System.out.println("day different**"+day2+"**month diff***"+month2+"*ปี***"+year3+"****จำนวนวันของเดือนเช่า ="+m+"****เริ่มเช่า = "+timeString+" ถึง "+timeString2);
+            Date due2 = duedate.getDate();
+            Rent r;
+            String[] a = new String[2];
+            try {
+                r = new Rent(date2, due2);
+                a = r.CalculateRent();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            int monthint = Integer.parseInt(a[0]);
+            int dayint = Integer.parseInt(a[1]);
             
            
-             
-            
            
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
+            
+            month.setText(a[0]);
+            day.setText(a[1]);
             PreparedStatement pst4 = con.prepareStatement("select * from carregis where carid = ?");
             pst4.setString(1, car_id);
             ResultSet rs = pst4.executeQuery();
@@ -4202,27 +4192,80 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 }
 
             }
-            month.setText(""+month2);
-            day.setText(""+day2);
-            System.out.println(monthcost);
-            System.out.println(daycost);
-            System.out.println("1515");
-            if (month2 != 0 && day2 != 0) {
-                fee.setText("" + (monthcost * month2 + daycost * day2));
+            System.out.println(monthcost * monthint);
+            if (dayint != 0 &&monthint != 0) {
+                fee.setText("" + (monthcost * monthint + daycost * dayint));
 
-            } else if (month2 == 0 && day2 != 0) {
-                fee.setText("" + (daycost * day2));
+            } else if (dayint == 0 && monthint != 0) {
+                fee.setText("" + (monthcost * monthint));
 
-            } else if (month2 != 0 && day2 == 0) {
-                fee.setText("" + (monthcost * month2));
+            } else if (dayint != 0 && monthint == 0) {
+                fee.setText("" + (daycost * dayint));
 
             }
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+            
+//            int monthcost = 0;
+//            int daycost = 0;
+//
+//            
+//                Date date22 = date.getDate();
+//                Date due22 = duedate.getDate();
+//
+//            
+//                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+//                String timeString = formatter.format(date22);
+//                
+//                int m = Integer.parseInt(timeString.substring(3, 5));
+//                String timeString2 = formatter.format(due22);
+//                
+//                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+//                Date firstDate = sdf.parse(timeString);
+//                Date secondDate = sdf.parse(timeString2);
+//                
+//              //l_month[m-1];
+//               double day_diff = (secondDate.getTime() - firstDate.getTime())/(1000*60*60*24)+1;
+//               int year3 = (int)Math.floor(day_diff/365);
+//               int month2 = (int)(day_diff%365)/l_month[m-1];
+//               int day2 = (int)((day_diff%365)%l_month[m-1]);
+//            System.out.println("day different**"+day2+"**month diff***"+month2+"*ปี***"+year3+"****จำนวนวันของเดือนเช่า ="+m+"****เริ่มเช่า = "+timeString+" ถึง "+timeString2);
+//
+//
+//
+//
+//           
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base", "123456");
+//            PreparedStatement pst4 = con.prepareStatement("select * from carregis where carid = ?");
+//            pst4.setString(1, car_id);
+//            ResultSet rs = pst4.executeQuery();
+//
+//            while (rs.next()) {
+//
+//                try {
+//                    monthcost = rs.getInt(6);
+//                    daycost = rs.getInt(8);
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//
+//            }
+//            month.setText(""+month2);
+//            day.setText(""+day2);
+//            System.out.println(monthcost);
+//            System.out.println(daycost);
+//            System.out.println("1515");
+//            if (month2 != 0 && day2 != 0) {
+//                fee.setText("" + (monthcost * month2 + daycost * day2));
+//
+//            } else if (month2 == 0 && day2 != 0) {
+//                fee.setText("" + (daycost * day2));
+//
+//            } else if (month2 != 0 && day2 == 0) {
+//                fee.setText("" + (monthcost * month2));
+//
+//            }
         } catch (SQLException ex) {
-            Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -4320,24 +4363,25 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel d1 = (DefaultTableModel)repairtable.getModel();
+        
+    
+        
+        if(txtabout.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "กรุณาเลือกแถวที่ต้องการลบ");
+        }
+        else{
+            int dialogResult  = JOptionPane.showConfirmDialog(this, "Do you want to delete your data","Warning",JOptionPane.YES_NO_OPTION);
+        if(dialogResult == JOptionPane.YES_OPTION){
+           try {
+               
+               DefaultTableModel d1 = (DefaultTableModel)repairtable.getModel();
         int selectedrow = repairtable.getSelectedRow();
        
         String id = d1.getValueAt(selectedrow, 0).toString();
-    
-        int dialogResult  = JOptionPane.showConfirmDialog(this, "Do you want to delete your data","Warning",JOptionPane.YES_NO_OPTION);
-        if(dialogResult == JOptionPane.YES_OPTION){
-           try {
-               Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://ihost.it.kmitl.ac.th:3306/it61070203_base", "it61070203_base","123456");
-                pst=con.prepareStatement("delete from carrepair where carid=?");
-                pst.setString(1,id);
-                pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Data Delete");
+              db.deleteRepairTB(id);
+            JOptionPane.showMessageDialog(this, "ลบเรียบร้อย");
             showData2();
                 
-           } catch (ClassNotFoundException ex) {
-               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
            } catch (SQLException ex) {
                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -4346,7 +4390,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         }
         else{
             
-        }
+        }}
     }//GEN-LAST:event_jButton12ActionPerformed
     Connection con;
 

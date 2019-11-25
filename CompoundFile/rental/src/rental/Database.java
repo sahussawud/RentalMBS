@@ -81,7 +81,7 @@ public class Database {
         return j;
     }
 
-    public void addregisTB(String idrod, String band, String type, String color, String tabian, String cost, String status, String costd, Date day) throws SQLException {
+    public void addregisTB(String idrod, String band, String type, String color, String tabian, String cost, String status, String costd,Date day) throws SQLException {
 
         Statement stmt = con.createStatement();
         PreparedStatement pst;
@@ -106,7 +106,7 @@ public class Database {
 
     public void editRegisTB(String id, String band, String type, String color, String tabian, String cost, String status, String costd, Date day) throws SQLException {
 
-        PreparedStatement pst = con.prepareStatement("update carregis set carbrand=?,carmodel=?,carcolor=?,cartabian=?,carprice=?,carstatus=?,carpriceday=? where carid=? ");
+        PreparedStatement pst = con.prepareStatement("update carregis set carbrand=?,carmodel=?,carcolor=?,cartabian=?,carprice=?,carstatus=?,carpriceday=?,date=? where carid=? ");
         pst.setString(1, band);
         pst.setString(2, type);
         pst.setString(3, color);
@@ -114,13 +114,16 @@ public class Database {
         pst.setString(5, cost);
         pst.setString(6, status);
         pst.setString(7, costd);
-        pst.setString(8, id);
-        pst.executeUpdate();
-
+        
         SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
         String date = Date_Format.format(day);
+        pst.setString(8, date);
+        pst.setString(9, id);
+        pst.executeUpdate();
+        
+     
 
-        pst.setString(9, date);
+        
 
     }
 
@@ -195,19 +198,19 @@ public class Database {
         pst.setString(6, mail);
         pst.setString(7, sex);
         pst.setString(8, id);
-        pst.executeUpdate();
+       pst.executeUpdate();
         getCustomerTB();
-
+       
         System.out.println("เเก้ไข CustomerTB ดาต้าเบส");
 
     }
 
     public void deleteCustomerTB(String id) throws SQLException {
 
-        PreparedStatement pst = con.prepareStatement("delete from carregis where carid=?");
+        PreparedStatement pst = con.prepareStatement("delete from Customer where id_customer=?");
         pst.setString(1, id);
         pst.executeUpdate();
-
+System.out.println("เเก้ไข CustomerTB ดาต้าเบส");
     }
 
     //status dashboard in Dashboard Panal--------------------------------------------------------
@@ -382,9 +385,11 @@ public class Database {
     }
 
     public void addRepairTB(String id_mb, String brand, String model, String color, String plate, String repair, String about, Date dateRe, Date datePRB) throws SQLException {
-        SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
-        String date = Date_Format.format(dateRe);
-        String datep = Date_Format.format(datePRB);
+         SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy");
+           String date = Date_Format.format(dateRe);
+
+           SimpleDateFormat Date_Format1 = new SimpleDateFormat("dd-MM-yyyy");
+            String datep = Date_Format1.format(datePRB);
 
         System.out.println("Database Connection succesful");
         Statement stmt = con.createStatement();
@@ -447,7 +452,7 @@ public class Database {
                 v2.add(Rs.getString("reciever_expense"));
                 v2.add(Rs.getString("amount_expense"));
                 v2.add(Rs.getString("detail_expense"));
-                v2.add(Rs.getString("least_editor"));
+           
 
             }
             df.addRow(v2);
@@ -458,7 +463,7 @@ public class Database {
     public void addExpenseTB(String Id,String Day,String type, String Reciver,String Amount,String Detail) throws SQLException {
        
         Statement stmt = con.createStatement();
-        PreparedStatement pst = con.prepareStatement("insert into ExpenseTB(id_expense,date_expense,type_expense,reciever_expense,amount_expense,detail_expense,least_editor) values(?,?,?,?,?,?,?)");
+        PreparedStatement pst = con.prepareStatement("insert into ExpenseTB(id_expense,date_expense,type_expense,reciever_expense,amount_expense,detail_expense) values(?,?,?,?,?,?)");
         pst.setString(1, Id);
         pst.setString(2, Day);
         pst.setString(3, type);
@@ -470,8 +475,8 @@ public class Database {
     }
 
     public void editExpenseTB(String id,String Day,String type, String Reciver,String Amount,String Detail) throws SQLException{
-        
-            PreparedStatement pst = con.prepareStatement("update ExpenseTB set date_expense=?,type_expense=?,reciever_expense=?,amount_expense=?,detail_expense=?,least_editor=? where id_expense=? ");
+        System.out.println("sss");
+            PreparedStatement pst = con.prepareStatement("update ExpenseTB set date_expense=?,type_expense=?,reciever_expense=?,amount_expense=?,detail_expense=? where id_expense=? ");
 
             pst.setString(1, Day);
             pst.setString(2, type);
@@ -479,7 +484,8 @@ public class Database {
             pst.setString(4, Amount);
             pst.setString(5, Detail);
          
-            pst.setString(7, id);
+            pst.setString(6, id);
+            pst.executeUpdate();
     }
 
     public void deleteExpenseTB(String id) throws SQLException{
