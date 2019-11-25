@@ -1,4 +1,4 @@
-package rentalmbs;
+package rental;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

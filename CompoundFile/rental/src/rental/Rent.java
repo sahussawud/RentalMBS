@@ -1,10 +1,10 @@
-package rentalmbs;
+package rental;
 
 
 
 import java.awt.List;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,8 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import rentalmbs.Database;
+import rental.Database;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,6 +30,8 @@ import rentalmbs.Database;
  * @author 04
  */
 public class Rent {
+
+   
     JTable RentTB;
     String RentID,CustomerID,VehicleID,CustomerName,TotalTime;
     int Mail;
@@ -37,12 +40,12 @@ public class Rent {
     int[] l_month = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
 
-    public Rent(String RentID, String CustomerID, String VehicleID, String CustomerName, String TotalTime, int Mail, double Cost, double Deposit, Date StartDate, Date Expire) throws ClassNotFoundException, SQLException {
+    public Rent(String RentID, String CustomerID, String VehicleID, String CustomerName,int Mail, double Cost, double Deposit, Date StartDate, Date Expire) throws ClassNotFoundException, SQLException {
         this.RentID = RentID;
         this.CustomerID = CustomerID;
         this.VehicleID = VehicleID;
         this.CustomerName = CustomerName;
-        this.TotalTime = TotalTime;
+        
         this.Mail = Mail;
         this.Cost = Cost;
         this.Deposit = Deposit;
@@ -51,11 +54,18 @@ public class Rent {
         Database db = new Database();
         
     }
+     
  public Rent() throws ClassNotFoundException, SQLException{
      Database db = new Database();
  }
     public Rent(JTable RentTB) {
         this.RentTB = RentTB;
+    }
+
+    Rent(Date date2, Date due2) throws ClassNotFoundException, SQLException {
+        Database db = new Database();
+        this.StartDate = (Date) date2;
+        this.Expire = (Date) due2;
     }
 
     public JTable getRentTB() {
@@ -138,7 +148,7 @@ public class Rent {
      public String[] CalculateRent() throws ParseException, ClassNotFoundException, SQLException{
             int monthcost = 0;
             int daycost = 0;
-            String[] a = new String[2];
+            String[] a = new String[5];
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
                 String timeString = formatter.format(StartDate);
                 
@@ -175,7 +185,7 @@ public class Rent {
             }
             a[0] = ""+month2;
             a[1] = ""+day2;
-            
+           
            
             if (month2 != 0 && day2 != 0) {
               a[2]= "" + (monthcost * month2 + daycost * day2);
