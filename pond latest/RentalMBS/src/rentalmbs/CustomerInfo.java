@@ -15,12 +15,7 @@ import javax.swing.JTable;
 public class CustomerInfo {
     JTable customerTB;
 
-    public CustomerInfo() throws ClassNotFoundException, SQLException {
-        
-        customerTB = new JTable();
-        Database d = new Database();
-        customerTB = d.getCustomerTB();       
-            
+    public CustomerInfo(String customerID,String name,String surname,String idnumber,String sex,String nation,String phone,String email) throws ClassNotFoundException, SQLException {                    
         this.customerID = customerID;
         this.name = name;
         this.surname = surname;

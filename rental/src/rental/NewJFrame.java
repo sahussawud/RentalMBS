@@ -358,6 +358,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         sidereturn = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
         siderepair = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
@@ -1583,7 +1584,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Summary1Layout.createSequentialGroup()
                         .addComponent(jLabel70)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(dateeeee, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(Summary1Layout.createSequentialGroup()
@@ -1620,6 +1621,9 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                 .addContainerGap()
                 .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Summary1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Summary1Layout.createSequentialGroup()
                         .addGroup(Summary1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel75)
                             .addComponent(IDexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1649,11 +1653,10 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
                         .addGap(18, 18, 18)
                         .addComponent(addExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(editExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(deleteExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
 
         Expensepanel.add(Summary1);
@@ -2310,7 +2313,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jLabel41.setText("jLabel40");
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/78542563_519691698873012_9093333019976007680_n.png"))); // NOI18N
 
         jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel69.setForeground(new java.awt.Color(255, 255, 255));
@@ -2328,16 +2331,19 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideregisLayout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(54, 54, 54))
         );
         sideregisLayout.setVerticalGroup(
             sideregisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideregisLayout.createSequentialGroup()
-                .addGroup(sideregisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(sideregisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideregisLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel69)
+                        .addGap(15, 15, 15)))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
@@ -2364,7 +2370,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Customer");
 
-        jLabel40.setText("jLabel40");
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/75587523_542018146581752_2667128756140769280_n.png"))); // NOI18N
 
         javax.swing.GroupLayout sidecustomerLayout = new javax.swing.GroupLayout(sidecustomer);
         sidecustomer.setLayout(sidecustomerLayout);
@@ -2445,24 +2451,29 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Return");
 
+        jLabel83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/75210217_1336767483168345_6444166070470180864_n.png"))); // NOI18N
+
         javax.swing.GroupLayout sidereturnLayout = new javax.swing.GroupLayout(sidereturn);
         sidereturn.setLayout(sidereturnLayout);
         sidereturnLayout.setHorizontalGroup(
             sidereturnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidereturnLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
+                .addComponent(jLabel83)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel46)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sidereturnLayout.setVerticalGroup(
             sidereturnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidereturnLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(sidereturnLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel13)
-                .addGap(20, 20, 20))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addComponent(jLabel83, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         siderepair.setBackground(new java.awt.Color(255, 102, 204));
@@ -2506,7 +2517,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
             .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel39.setText("jLabel39");
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
 
         sidedashboard.setBackground(new java.awt.Color(255, 51, 102));
         sidedashboard.setPreferredSize(new java.awt.Dimension(189, 60));
@@ -5000,6 +5011,7 @@ public class NewJFrame extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;

@@ -532,4 +532,24 @@ public class Database {
             pst2.setString(1, mb_id);
             pst2.executeUpdate();
     }
+    
+     public String[] getRepairID(JComboBox<String> repairID) throws SQLException{
+         
+            // [id,carbrand, carmodel, cartabian, carcolor]
+            String [] data_set = new String[]{"","","",""};
+            String car_id = repairID.getSelectedItem().toString();
+
+            PreparedStatement pst1 = con.prepareStatement("select * from carregis where carid = ?");
+            pst1.setString(1, car_id);
+            data_set[0] = car_id;
+            ResultSet rs = pst1.executeQuery();
+            while (rs.next()) {
+                    data_set[1] = rs.getString(2);
+                    data_set[2] = rs.getString(3);
+                    data_set[3] = rs.getString(4);
+                    data_set[4] = rs.getString(5);
+            }
+          
+            return data_set;        
+    }
 }
