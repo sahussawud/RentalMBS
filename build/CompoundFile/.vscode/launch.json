@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NewJFrame",
+            "request": "launch",
+            "mainClass": "rental.NewJFrame"
+        }
+    ]
+}
